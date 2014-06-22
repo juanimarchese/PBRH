@@ -4,7 +4,7 @@ package com.pcrh
  * Hecho
  * A domain class describes the data object and it's mapping to the database
  */
-class Hecho {
+class Hecho implements Serializable{
 
 	/* Default (injected) attributes of GORM */
 	Long	id
@@ -14,8 +14,7 @@ class Hecho {
 	Date	dateCreated
 	Date	lastUpdated
 
-    Long numero
-    Long anio
+    IdHecho idHecho
     Date fechaHecho
     String horaSolicitud
     String horaArribo
@@ -37,12 +36,13 @@ class Hecho {
 
 	
 	static	hasMany		= [hechosRelacionados: Hecho]	// tells GORM to associate other domain objects for a 1-n or n-m mapping
-
+    static mappedBy = [hechosRelacionados:"hechosRelacionados" ]
     static mapping = {
-        id composite: ['numero', 'anio']
+        hechosRelacionados updateable: false
+        hechosRelacionados insertable: false
     }
 	static	constraints = {
-
+        id composite: ['idHecho']
     }
 	
 	/*
