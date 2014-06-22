@@ -17,6 +17,18 @@
                     <i class="glyphicon glyphicon-search"></i> Consultar Hechos
                 </g:link>
             </li>
+            <sec:ifAllGranted roles="ROLE_JEFE">
+                <li class="controller">
+                    <g:link controller="main" action="index">
+                        <i class="glyphicon glyphicon-plus-sign"></i> Nueva Salida
+                    </g:link>
+                </li>
+                <li class="controller">
+                    <g:link controller="main" action="index">
+                        <i class="glyphicon glyphicon-search"></i> Consultar Salidas
+                    </g:link>
+                </li>
+            </sec:ifAllGranted>
             <sec:ifAllGranted roles="ROLE_ADMIN">
                 <li class="controller">
                     <g:link controller="main" action="index">

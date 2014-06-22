@@ -7,14 +7,14 @@ package com.pcrh
 class Hecho implements Serializable{
 
 	/* Default (injected) attributes of GORM */
-	Long	id
-	Long	version
+	Long    id
+    Long	version
 	
 	/* Automatic timestamping of GORM */
 	Date	dateCreated
 	Date	lastUpdated
 
-    IdHecho idHecho
+    String idHecho
     Date fechaHecho
     String horaSolicitud
     String horaArribo
@@ -38,11 +38,12 @@ class Hecho implements Serializable{
 	static	hasMany		= [hechosRelacionados: Hecho]	// tells GORM to associate other domain objects for a 1-n or n-m mapping
     static mappedBy = [hechosRelacionados:"hechosRelacionados" ]
     static mapping = {
+        id generator: 'assigned', name: "idHecho", type: 'string'
         hechosRelacionados updateable: false
         hechosRelacionados insertable: false
     }
 	static	constraints = {
-        id composite: ['idHecho']
+
     }
 	
 	/*
