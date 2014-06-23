@@ -8,7 +8,7 @@
 				</g:link>
 			</li>
             <li class="controller">
-                <g:link controller="main" action="index">
+                <g:link controller="hecho" action="create">
                     <i class="glyphicon glyphicon-plus-sign"></i> Nuevo Hecho
                 </g:link>
             </li>
