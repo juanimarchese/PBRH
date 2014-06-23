@@ -20,7 +20,7 @@ import com.pcrh.security.UserRole
 class BootStrap {
 
     def init = { servletContext ->
-     /*  def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+      /* def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
         def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
         def jefeRole = new Role(authority: 'ROLE_JEFE').save(flush: true)
 
@@ -56,17 +56,17 @@ class BootStrap {
         def resultado = new ResultadoHecho(noPreservado: false,noMoradores: true,sinEvidencia: false);
         resultado.addToEvidencias(evidencia);
         def resultado2 = new ResultadoHecho(noPreservado: false,noMoradores: true,sinEvidencia: false);
-        resultado.addToEvidencias(evidencia2);
+        resultado2.addToEvidencias(evidencia2);
         def hecho = new Hecho(idHecho:"1/2014", fechaHecho: new Date(),horaSolicitud: "12:12:12", horaArribo: "12:12:12",horaFinal: "12:12:12",
                 comisariaInterviniente: comisaria, caratula:caratula, formaRecepcion:formaRecepcion, movil:"12", observaciones:"Hola",
                 victima: "Luis Perez", imputado:"Jose Suarez", lugarHecho: lugarHecho, magistradoInterviniente:"Pedro Suarez",
-                perito: persona, pu: null, especialidad: especialidad, lef: null,resultado: resultado).save(failOnError: true)
+                perito: persona, pu: null, especialidad: especialidad, lef: null,resultado: resultado).save(flush: true)
         def hecho1 = new Hecho(idHecho:"2/2014", fechaHecho: new Date(),horaSolicitud: "12:12:12", horaArribo: "12:12:12",horaFinal: "12:12:12",
                 comisariaInterviniente: comisariaOther, caratula:caratulaOther, formaRecepcion:formaRecepcionOther, movil:"12", observaciones:"Hola",
                 victima: "Luis Perez", imputado:"Jose Suarez", lugarHecho: lugarHecho2, magistradoInterviniente:"Pedro Suarez",
                 perito: persona, pu: null, especialidad: especialidadOther, lef: null,resultado: resultado2)
         hecho1.addToHechosRelacionados(hecho)
-        hecho1.save(failOnError: true)*/
+        hecho1.save(flush: true)*/
     }
     def destroy = {
     }
