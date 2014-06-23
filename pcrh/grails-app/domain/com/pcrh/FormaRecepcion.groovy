@@ -23,4 +23,12 @@ class FormaRecepcion {
     static constraints = {
         formaRecepcion(blank: false,nullable: false)
     }
+
+    @Override
+    String toString() {
+        if (formaRecepcion.getValor().equals(EnumFormaRecepcion.OTRO.getValor())){
+            return otherDescription;
+        }
+        return formaRecepcion.getValor();
+    }
 }

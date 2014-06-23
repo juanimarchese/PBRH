@@ -118,3 +118,7 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.pcrh.security.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.pcrh.security.UserRole'
 grails.plugins.springsecurity.authority.className = 'com.pcrh.security.Role'
+
+grails.gorm.default.constraints = {
+    '*'(blank: true, nullable: true)
+}

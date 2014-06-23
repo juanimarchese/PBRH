@@ -23,4 +23,12 @@ class Especialidad {
     static constraints = {
         especialidad(blank: false,nullable: false)
     }
+
+    @Override
+    String toString() {
+        if (especialidad.getValor().equals(EnumEspecialidad.OTRO.getValor())){
+            return otherDescription;
+        }
+        return especialidad.getValor();
+    }
 }

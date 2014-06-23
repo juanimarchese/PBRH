@@ -45,8 +45,17 @@ class Hecho implements Serializable{
 	static	constraints = {
 
     }
-	
-	/*
+
+    String getIdHechoNumero() {
+        def find = idHecho.split('/')
+        return find[0]
+    }
+
+    String getIdHechoAnio() {
+        def find = idHecho.split('/')
+        return find[1]
+    }
+/*
 	 * Methods of the Domain Class
 	 */
 //	@Override	// Override toString for a nicer / more descriptive UI 

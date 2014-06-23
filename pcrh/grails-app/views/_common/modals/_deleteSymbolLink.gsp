@@ -7,4 +7,4 @@ This modal is used to show a button that initiates the delete action.
 	<i class="glyphicon glyphicon-trash"></i>
 </a>
 
-<g:render template="/_common/modals/deleteDialog" model="[item: item]"/>
+<g:render template="/_common/modals/deleteDialog" model="[itemId: id]"/>

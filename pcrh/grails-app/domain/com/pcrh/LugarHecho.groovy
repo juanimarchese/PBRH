@@ -16,4 +16,9 @@ class LugarHecho extends Lugar{
     static constraints = {
         zona(blank: false, nullable: false)
     }
+
+    @Override
+    String toString() {
+        return this.getDireccion() + " - " + this.getLocalidad()
+    }
 }

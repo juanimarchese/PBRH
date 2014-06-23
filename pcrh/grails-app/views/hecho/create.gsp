@@ -1,4 +1,4 @@
-<%@ page import="com.pcrh.Hecho" %>
+<%@ page import="kickstart._DemoPage" %>
 <!doctype html>
 <html>
 
@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="layout" content="kickstart" />
 	<g:set var="entityName" value="Hecho" />
-	<title><g:message code="default.create.label" args="[entityName]" /></title>
+	<title>Nuevo Hecho</title>
 </head>
 
 <body>
@@ -19,13 +19,14 @@
 	</div>
 	</g:hasErrors>
 	
-	<g:form action="save" class="form-horizontal"  enctype="multipart/form-data">
+	<g:form id="form" action="save" class="form-horizontal"  enctype="multipart/form-data">
 		<fieldset class="form">
 			<g:render template="form"/>
 		</fieldset>
+        <br>
 		<div class="form-actions" align="center">
 			<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-            <button class="btn" type="reset">Cancelar</button>
+            <button class="btn" type="reset">Limpiar</button>
 		</div>
 	</g:form>
 	

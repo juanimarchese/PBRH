@@ -1,4 +1,4 @@
-<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_USER">
+<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_USER,ROLE_JEFE">
 <li class="dropdown">
 	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<b class="caret"></b></a>
 	<ul class="dropdown-menu">
@@ -13,11 +13,11 @@
                 </g:link>
             </li>
             <li class="controller">
-                <g:link controller="main" action="index">
+                <g:link controller="hecho" action="index">
                     <i class="glyphicon glyphicon-search"></i> Consultar Hechos
                 </g:link>
             </li>
-            <sec:ifAllGranted roles="ROLE_JEFE">
+            <sec:ifAnyGranted roles="ROLE_JEFE,ROLE_ADMIN">
                 <li class="controller">
                     <g:link controller="main" action="index">
                         <i class="glyphicon glyphicon-plus-sign"></i> Nueva Salida
@@ -28,14 +28,14 @@
                         <i class="glyphicon glyphicon-search"></i> Consultar Salidas
                     </g:link>
                 </li>
-            </sec:ifAllGranted>
-            <sec:ifAllGranted roles="ROLE_ADMIN">
+            </sec:ifAnyGranted>
+            <sec:ifAnyGranted roles="ROLE_JEFE,ROLE_ADMIN">
                 <li class="controller">
                     <g:link controller="main" action="index">
                         <i class="glyphicon glyphicon-stats"></i> Ver Estadisticas
                     </g:link>
                 </li>
-            </sec:ifAllGranted>
+            </sec:ifAnyGranted>
     </ul>
 </li>
 </sec:ifAnyGranted>

@@ -23,4 +23,13 @@ class Caratula implements Serializable{
     static constraints = {
         caratula(blank: false,nullable: false)
     }
+
+
+    @Override
+    public String toString() {
+        if (caratula.getValor().equals(EnumCaratula.OTRO.getValor())){
+            return otherDescription;
+        }
+        return caratula.getValor();
+    }
 }

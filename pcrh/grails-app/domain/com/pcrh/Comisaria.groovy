@@ -23,4 +23,12 @@ class Comisaria {
     static constraints = {
         comisaria(blank: false,nullable: false)
     }
+
+    @Override
+    String toString() {
+        if (comisaria.getNombre().equals(EnumComisaria.OTRA.getNombre())){
+            return otherDescription;
+        }
+        return comisaria.getNombre();
+    }
 }
