@@ -26,7 +26,7 @@ class Comisaria {
 
     @Override
     String toString() {
-        if (comisaria.getNombre().equals(EnumComisaria.OTRA.getNombre())){
+        if (comisaria.getNombre().equals(EnumComisaria.OTRO.getNombre())){
             return otherDescription;
         }
         return comisaria.getNombre();
