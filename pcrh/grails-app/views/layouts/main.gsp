@@ -18,7 +18,7 @@
 		<g:javascript library="application"/>
 		<g:javascript library="jquery.validate"/>
         <r:layoutResources />
-	</head>
+    </head>
 	<body>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>

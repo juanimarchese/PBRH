@@ -22,16 +22,28 @@
 
     <script type="text/javascript">
         $(function (){
-            $("#form").validate({
-                rules: {
-                    'idHecho': {
+                $("#form").validate();
+                $(".required").each(function (item) {
+                    $(this).rules("add", {
                         required: true
-                    }
-                },
-                messages: {
-                    'idHecho': {
-                        required: "Por favor, Ingrese numero de hecho."
-                    }
+                    });
+                });
+
+        });
+
+        $(document).ready(function() {
+            $('#form-btw').hide(); //hide field on start
+
+            $('#Klant').change(function() {
+
+                var $index = $('#Klant').index(this);
+
+                if($('#Klant').val() != 'professional') { //if this value is NOT selected
+                    $('#form-btw').hide(); //this field is hidden
+                }
+                else {
+                    $('#form-btw').show();//else it is shown
+
                 }
             });
         });
