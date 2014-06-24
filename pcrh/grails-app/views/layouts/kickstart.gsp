@@ -15,6 +15,7 @@
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'favicon.ico')}">
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'favicon.ico')}" sizes="72x72">
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'favicon.ico')}" sizes="114x114">
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'validate.css')}" type="text/css">
 
     <%-- Manual switch for the skin can be found in /view/_menu/_config.gsp --%>
     <r:require modules="jquery"/> <%-- jQuery is required for Bootstrap! --%>
@@ -65,9 +66,7 @@
 
 <!-- Included Javascript files and other resources -->
 <r:layoutResources/>
-%{--
-<g:javascript plugin="kickstart-with-bootstrap" src="../datepicker/js/locales/bootstrap-datepicker.es.js" />
---}%
+
 
 <script>
 
