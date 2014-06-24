@@ -109,7 +109,7 @@
         <label class="control-label">Zona</label>
 
         <div>
-            <g:select class="form-control required" name="${hecho.lugarHecho.zona}" noSelection="['': 'Seleccionar']"
+            <g:select class="form-control required" name="hecho.lugarHecho.zona" noSelection="['': 'Seleccionar']"
                       from="${com.pcrh.enums.EnumZona.values()*.getValor()}"
                       keys="${com.pcrh.enums.EnumZona.values()*.name()}"
                       value="${hecho?.lugarHecho?.zona?.name()}"/>
