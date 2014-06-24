@@ -43,7 +43,7 @@ class BootStrap {
         def caratula = new Caratula(caratula: EnumCaratula.ABUSO_ARMA)
         def caratulaOther = new Caratula(caratula: EnumCaratula.OTRO,otherDescription: "hola")
         def comisaria = new Comisaria(comisaria: EnumComisaria.JCP_S)
-        def comisariaOther = new Comisaria(comisaria: EnumComisaria.OTRA,otherDescription: "hola")
+        def comisariaOther = new Comisaria(comisaria: EnumComisaria.OTRO,otherDescription: "hola")
         def especialidad = new Especialidad(especialidad: EnumEspecialidad.FOTOGRAFIA)
         def especialidadOther = new Especialidad(especialidad: EnumEspecialidad.OTRO,otherDescription: "Hola")
         def formaRecepcion = new FormaRecepcion(formaRecepcion: EnumFormaRecepcion.OFICIO)
