@@ -52,9 +52,13 @@
 
                 <td>
 
-                    <g:render template="/_common/buttons/editSymbolLink" model="[id: hechoVar.idHecho]"/>
+                    <span class="">
+                        <g:link action="edit" params="[id: hechoVar.idHechoNumero , anio: hechoVar.idHechoAnio]" role="button" class="btn btn-success btn-sm" title="Editar">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </g:link>
+                    </span>
 
-                    <g:render template="/_common/modals/deleteSymbolLink" model="[id: hechoVar.idHecho]"/>
+                    <g:render template="/_common/modals/deleteSymbolLink" model="[id: hechoVar.idHechoNumero , anio: hechoVar.idHechoAnio]"/>
 
 
                 </td>

@@ -105,9 +105,15 @@
     </div>
 
     <div class="col-lg-4">
-        <g:render template="/_common/components/comboWithOther" model="[id:'zona',label: 'Zona',name: 'hecho.lugarHecho.zona',nameOther: 'hecho.lugarHecho.otherDescription',
-                                                                        from: com.pcrh.enums.EnumZona.values()*.getValor(),keys: com.pcrh.enums.EnumZona.values()*.name(), value: hecho?.lugarHecho?.zona?.name(),otherValue: hecho?.lugarHecho?.otherDescription
-        ]"/>
+
+        <label class="control-label">Zona</label>
+
+        <div>
+            <g:select class="form-control required" name="${hecho.lugarHecho.zona}" noSelection="['': 'Seleccionar']"
+                      from="${com.pcrh.enums.EnumZona.values()*.getValor()}"
+                      keys="${com.pcrh.enums.EnumZona.values()*.name()}"
+                      value="${hecho?.lugarHecho?.zona?.name()}"/>
+        </div>
     </div>
 </div>
 
