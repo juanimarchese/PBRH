@@ -83,5 +83,109 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-lg-4">
+        <div >
+            <label class="control-label">Dirección del Hecho</label>
+
+            <div>
+                <g:textField class="form-control " name="hecho.lugarHecho.direccion" value="${hecho?.lugarHecho?.direccion}"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div >
+            <label class="control-label">Localidad del Hecho</label>
+
+            <div>
+                <g:textField class="form-control " name="hecho.lugarHecho.localidad" value="${hecho?.lugarHecho?.localidad}"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <g:render template="/_common/components/comboWithOther" model="[id:'zona',label: 'Zona',name: 'hecho.lugarHecho.zona',nameOther: 'hecho.lugarHecho.otherDescription',
+                                                                        from: com.pcrh.enums.EnumZona.values()*.getValor(),keys: com.pcrh.enums.EnumZona.values()*.name(), value: hecho?.lugarHecho?.zona?.name(),otherValue: hecho?.lugarHecho?.otherDescription
+        ]"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div >
+            <label class="control-label">Magistrado Interviniente</label>
+
+            <div>
+                <g:textField class="form-control " name="hecho.magistradoInterviniente" value="${hecho?.magistradoInterviniente}"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div >
+            <label class="control-label">Victima</label>
+
+            <div>
+                <g:textField class="form-control " name="hecho.victima" value="${hecho?.victima}"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div >
+            <label class="control-label">Imputado</label>
+
+            <div>
+                <g:textField class="form-control " name="hecho.imputado" value="${hecho?.imputado}"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div >
+            <label class="control-label">Jerarquia Perito</label>
+
+            <div>
+                <g:textField class="form-control " name="hecho.perito.jerarquia" value="${hecho?.perito?.jerarquia}"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div >
+            <label class="control-label">Nombre Perito</label>
+
+            <div>
+                <g:textField class="form-control " name="hecho.perito.nombre" value="${hecho?.perito?.nombre}"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div >
+            <label class="control-label">Apellido Perito</label>
+
+            <div>
+                <g:textField class="form-control " name="hecho.perito.apellido" value="${hecho?.perito?.apellido}"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <g:render template="/_common/components/comboWithOther" model="[id:'especialidad',label: 'Especialidad',name: 'hecho.especialidad.especialidad',nameOther: 'hecho.especialidad.otherDescription',
+                                                                        from: com.pcrh.enums.EnumEspecialidad.values()*.getValor(),keys: com.pcrh.enums.EnumEspecialidad.values()*.name(), value: hecho?.especialidad?.especialidad?.name(),otherValue: hecho?.especialidad?.otherDescription
+        ]"/>
+    </div>
+
+
+</div>
+
+
+
 
 
