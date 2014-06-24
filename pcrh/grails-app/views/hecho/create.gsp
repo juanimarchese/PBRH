@@ -7,6 +7,7 @@
 	<meta name="layout" content="kickstart" />
 	<g:set var="entityName" value="Hecho" />
 	<title>Nuevo Hecho</title>
+
 </head>
 
 <body>
@@ -18,8 +19,24 @@
 		<g:renderErrors bean="${hecho}" as="list" />
 	</div>
 	</g:hasErrors>
-	
-	<g:form id="form" action="save" class="form-horizontal"  enctype="multipart/form-data">
+
+    <script type="text/javascript">
+        $(function (){
+            $("#form").validate({
+                rules: {
+                    'idHecho': {
+                        required: true
+                    }
+                },
+                messages: {
+                    'idHecho': {
+                        required: "Por favor, Ingrese numero de hecho."
+                    }
+                }
+            });
+        });
+    </script>
+	<g:form name="form" action="save" class="form-horizontal"  enctype="multipart/form-data">
 		<fieldset class="form">
 			<g:render template="form"/>
 		</fieldset>
@@ -29,7 +46,8 @@
             <button class="btn" type="reset">Limpiar</button>
 		</div>
 	</g:form>
-	
+
+
 </section>
 		
 </body>

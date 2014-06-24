@@ -3,7 +3,7 @@
 			<div class="${hasErrors(bean: _DemoPageInstance, field: 'name', 'error')} ">
 				<label for="name" class="control-label"><g:message code="_DemoPage.name.label" default="Name" /></label>
 				<div>
-					<g:textField class="form-control" name="name" value="${_DemoPageInstance?.name}"/>
+					<g:textField class="form-control" name="name" value="${_DemoPageInstance?.name}" required />
 					<span class="help-inline">${hasErrors(bean: _DemoPageInstance, field: 'name', 'error')}</span>
 				</div>
 			</div>
