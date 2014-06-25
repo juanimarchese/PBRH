@@ -12,9 +12,12 @@
 
         var clone = $("#evidencia_clone").clone()
 
-        clone.find("input[id$=id]")
-                .attr('id',htmlId + 'id')
-                .attr('name',htmlId + 'id');
+        var hiddenId = clone.find("input[id$=id]");
+        hiddenId.attr('id',htmlId + 'id').attr('name',htmlId + 'id');
+
+        if (hiddenId.attr('value') === null || hiddenId.attr('value') == ""){
+            hiddenId.remove();
+        }
 
         clone.find("input[id$=deleted]")
                 .attr('id',htmlId + 'deleted')
@@ -54,6 +57,7 @@
         sectorInput.focus();
         childCount++;
         cantFilas++;
+        //$("#cantEvidencias").attr('value', cantFilas);
         if(cantFilas> 0) {
             $("#noneChildList").hide();
             $("#headerChildList").show();
@@ -77,6 +81,7 @@
             prnt.hide();
         }
         cantFilas--;
+        //$("#cantEvidencias").attr('value', cantFilas);
         if(cantFilas == 0) {
             $("#headerChildList").hide();
             $("#noneChildList").show();
@@ -128,6 +133,7 @@
     </div>
     <g:each var="evidencia" in="${resultadoInstance?.evidencias}" status="i">
         <!-- Render the evidencia template (_evidencia.gsp) here -->
+       %{-- <g:hiddenField id="cantEvidencias" name='cantEvidencias' value='${resultadoInstance?.evidencias?.size() ?: 0}'/>--}%
         <g:render template='evidencia' model="['evidencia':evidencia,'i':i,'hidden':false]"/>
         <!-- Render the evidencia template (_evidencia.gsp) here -->
     </g:each>

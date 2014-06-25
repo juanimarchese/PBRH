@@ -1,6 +1,8 @@
 package pcrh
 
+import com.pcrh.Evidencia
 import com.pcrh.Hecho
+import com.pcrh.ResultadoHecho
 import grails.plugins.springsecurity.Secured
 
 /**
@@ -32,6 +34,7 @@ class HechoController {
     def save() {
         def hecho = new Hecho()
         hecho.properties = params
+
         hecho.clearErrors()
         hecho.validate()
         // store demopage in session (instead of in the database)

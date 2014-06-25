@@ -23,7 +23,7 @@
 
     </div>
     <div class="col-lg-6">
-        <g:textField class="form-control" name='resultado.evidencias[${i}].observaciones' value='${evidencia?.observaciones}' />
+      <g:textField class="form-control" name='resultado.evidencias[${i}].observaciones' value='${evidencia?.observaciones}' />
 
     </div>
     <div class="col-lg-1 pull-right" style="text-align: center">

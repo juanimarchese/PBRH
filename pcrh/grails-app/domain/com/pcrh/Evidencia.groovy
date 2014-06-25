@@ -16,14 +16,15 @@ class Evidencia {
 	Date	dateCreated
 	Date	lastUpdated
 
-    Character sector
+    Boolean deleted
+    Boolean newInstance
+    /*static transients = [ 'deleted' ,'newInstance']*/
+
+    String sector
     Long numero
-    EnumTipoEvidencia tipo
     Long cantidad
     String observaciones
-    boolean deleted
-    boolean newInstance
-    static transients = [ 'deleted' ,'newInstance']
+    EnumTipoEvidencia tipo
 
     static	belongsTo	= [resultado: ResultadoHecho]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
 

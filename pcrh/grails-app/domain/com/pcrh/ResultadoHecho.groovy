@@ -21,10 +21,11 @@ class ResultadoHecho {
     Boolean noMoradores
     Boolean sinEvidencia
     List evidencias
+
+    static hasMany = [evidencias: Evidencia]
+
+    /* List<Evidencia> evidencias = LazyList.decorate(new ArrayList(), FactoryUtils.instantiateFactory(Evidencia.class));*/
 	static	belongsTo	= [hecho: Hecho]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
-	static	hasMany		= [evidencias: Evidencia]	// tells GORM to associate other domain objects for a 1-n or n-m mapping
-	static	mappedBy	= [evidencias: "resultado"]	// specifies which property should be used in a mapping
-    static mapping = {
-        evidencias cascade:"all-delete-orphan"
-    }
+/*	static	hasMany		= [evidencias: Evidencia]	// tells GORM to associate other domain objects for a 1-n or n-m mapping
+	static	mappedBy	= [evidencias: "resultado"]	// specifies which property should be used in a mapping*/
 }
