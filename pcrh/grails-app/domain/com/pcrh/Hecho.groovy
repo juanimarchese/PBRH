@@ -1,5 +1,7 @@
 package com.pcrh
 
+import org.grails.databinding.BindingFormat
+
 /**
  * Hecho
  * A domain class describes the data object and it's mapping to the database
@@ -15,6 +17,7 @@ class Hecho implements Serializable{
 	Date	lastUpdated
 
     String idHecho
+    @BindingFormat('dd/MM/yyyy')
     Date fechaHecho
     String horaSolicitud
     String horaArribo

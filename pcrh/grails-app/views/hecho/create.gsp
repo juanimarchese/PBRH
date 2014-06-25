@@ -30,23 +30,6 @@
                 });
 
         });
-
-        $(document).ready(function() {
-            $('#form-btw').hide(); //hide field on start
-
-            $('#Klant').change(function() {
-
-                var $index = $('#Klant').index(this);
-
-                if($('#Klant').val() != 'professional') { //if this value is NOT selected
-                    $('#form-btw').hide(); //this field is hidden
-                }
-                else {
-                    $('#form-btw').show();//else it is shown
-
-                }
-            });
-        });
     </script>
 	<g:form name="form" action="save" class="form-horizontal"  enctype="multipart/form-data">
 		<fieldset class="form">
@@ -58,7 +41,9 @@
             <button class="btn" type="reset">Limpiar</button>
 		</div>
 	</g:form>
-
+    <!-- Render the evidencia template (_evidencia.gsp) hidden so we can clone it -->
+        <g:render template='evidencia' model="['evidencia':null,'i':'_clone','hidden':true]"/>
+    <!-- Render the evidencia template (_evidencia.gsp) hidden so we can clone it -->
 
 </section>
 		

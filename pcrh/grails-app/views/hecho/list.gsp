@@ -43,7 +43,7 @@
 
                 <td><g:link action="show" params="[id: hechoVar.idHechoNumero , anio: hechoVar.idHechoAnio]">${fieldValue(bean: hechoVar, field: "idHecho")}</g:link></td>
 
-                <td><g:formatDate format="dd-MM-yyyy" date="${hechoVar.fechaHecho}"/>${fieldValue(bean: hechoVar, field: "fechaHecho")}</td>
+                <td><g:formatDate format="dd/MM/yyyy" date="${hechoVar.fechaHecho}"/>${fieldValue(bean: hechoVar, field: "fechaHecho")}</td>
 
                 <td>${fieldValue(bean: hechoVar, field: "caratula")}</td>
                 <td>${fieldValue(bean: hechoVar, field: "comisariaInterviniente")}</td>

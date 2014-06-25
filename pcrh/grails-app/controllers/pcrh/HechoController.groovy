@@ -25,17 +25,19 @@ class HechoController {
     }
 
     def create() {
-        [hecho: new Hecho(params)]
+        def hecho = new Hecho(params)
+        [hecho: hecho]
     }
 
     def save() {
-        def _DemoPageInstance = new Hecho(params)
-        _DemoPageInstance.clearErrors()
-        _DemoPageInstance.validate()
+        def hecho = new Hecho()
+        hecho.properties = params
+        hecho.clearErrors()
+        hecho.validate()
         // store demopage in session (instead of in the database)
-        session.demopage = _DemoPageInstance
-        flash.message = message(code: 'default.created.message', args: [message(code: '_DemoPage.label', default: '_DemoPage'), _DemoPageInstance.id])
-        redirect(action: "show", dp: _DemoPageInstance)
+        /*session.demopage = _DemoPageInstance*/
+        flash.message = message(code: 'default.created.message', args: ["Hecho", hecho.id])
+        redirect(action: "show", dp: hecho)
     }
 
       def show() {
