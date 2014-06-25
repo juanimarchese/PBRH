@@ -20,7 +20,7 @@ class ResultadoHecho {
     Boolean noPreservado
     Boolean noMoradores
     Boolean sinEvidencia
-    List evidencias = ListUtils.lazyList(new ArrayList(),FactoryUtils.instantiateFactory(Evidencia.class))
+    List evidencias
 	static	belongsTo	= [hecho: Hecho]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
 	static	hasMany		= [evidencias: Evidencia]	// tells GORM to associate other domain objects for a 1-n or n-m mapping
 	static	mappedBy	= [evidencias: "resultado"]	// specifies which property should be used in a mapping
