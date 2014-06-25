@@ -37,10 +37,22 @@ class HechoController {
 
         hecho.clearErrors()
         hecho.validate()
-        // store demopage in session (instead of in the database)
-        /*session.demopage = _DemoPageInstance*/
-        flash.message = message(code: 'default.created.message', args: ["Hecho", hecho.id])
-        redirect(action: "show", dp: hecho)
+
+        // find the phones that are marked for deletion
+        def _toBeDeleted = hecho.resultado.evidencias.findAll {(it?.deleted || (it == null))}
+
+        // if there are phones to be deleted remove them all
+        if (_toBeDeleted) {
+            hecho.resultado.evidencias.removeAll(_toBeDeleted)
+        }
+
+        if (!hecho.hasErrors() && hecho.save(flush: true)) {
+            flash.message = message(code: 'default.created.message', args: ["Hecho", hecho.idHecho])
+            redirect(action: "index")
+        } else {
+            flash.message = "Error al crear el hecho"
+            redirect(action: "create", params: params)
+        }
     }
 
       def show() {
