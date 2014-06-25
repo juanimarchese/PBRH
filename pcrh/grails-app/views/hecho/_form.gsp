@@ -190,6 +190,17 @@
         ]"/>
     </div>
 
+    <div class="col-lg-8">
+        <div >
+            <label class="control-label">Observaciones</label>
+
+            <div>
+                <g:textField class="form-control " name="observaciones" value="${hecho?.observaciones}"/>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
 <div class="row">
