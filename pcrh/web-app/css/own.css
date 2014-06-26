@@ -2,3 +2,7 @@
     cursor: default  !important;
     background-color: #ffffff  !important;
 }
+
+button.multiselect.dropdown-toggle.btn.btn-default{
+    min-width: 110px;
+}

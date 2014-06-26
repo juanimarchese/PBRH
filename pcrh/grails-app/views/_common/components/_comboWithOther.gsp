@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    $(document).ready(function () {
+    $( window ).load(function () {
         $('#'+'${id}'+'_txt').removeClass("required");
         $('#'+'${id}'+'_div_other').hide(); //hide field on start
         $('#'+'${id}'+'_div_ppal').removeClass("col-lg-5");

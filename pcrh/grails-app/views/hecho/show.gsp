@@ -9,7 +9,7 @@
 	<g:set var="entityName" value="Hecho" />
 	<title><g:message code="default.show.label" args="[entityName]" /></title>
     <script>
-        $( document ).ready(function() {
+        $( window ).load(function() {
             $('#show-hecho').find('input, textarea, button, select').attr('disabled','disabled');
 
         })

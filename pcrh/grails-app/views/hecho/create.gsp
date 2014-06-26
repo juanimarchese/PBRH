@@ -1,4 +1,3 @@
-<%@ page import="kickstart._DemoPage" %>
 <!doctype html>
 <html>
 
@@ -21,7 +20,7 @@
 	</g:hasErrors>
 
     <script type="text/javascript">
-        $(function (){
+        $( window ).load(function (){
                 $.validator.addMethod(
                         "hora",
                         function(value, element, regexp) {

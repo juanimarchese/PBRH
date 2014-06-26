@@ -16,19 +16,29 @@ class Especialidad {
     Date	dateCreated
     Date	lastUpdated
 
-    EnumEspecialidad especialidad;
+    List<EnumEspecialidad> especialidades;
     String otherDescription;
 
+    static hasMany = [especialidades: EnumEspecialidad]
     static	belongsTo	= [hecho: Hecho]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
     static constraints = {
-        especialidad(blank: false,nullable: false)
+        especialidades(blank: false,nullable: false)
     }
 
     @Override
     String toString() {
-        if (especialidad.getValor().equals(EnumEspecialidad.OTRO.getValor())){
+        if (especialidades.contains(EnumEspecialidad.OTRO)){
             return otherDescription;
+        } else {
+            String especialidadStr
+            for(int i = 0;i < especialidades.size(); i++){
+                if (i == especialidades.size()-1){
+                    especialidadStr =+ especialidad.getValor()
+                } else{
+                    especialidadStr =+ especialidad.getValor() + ", "
+                }
+            }
+            return especialidadStr;
         }
-        return especialidad.getValor();
     }
 }

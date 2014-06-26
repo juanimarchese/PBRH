@@ -2,7 +2,7 @@
     var childCount = ${resultadoInstance?.evidencias?.size()} + 0;
 
     var cantFilas = 0;
-    $(document).ready(function () {
+    $( window ).load(function () {
         $("#headerChildList").hide();
     })
 

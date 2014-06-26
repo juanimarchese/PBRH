@@ -8,7 +8,7 @@
     <g:set var="entityName" value="Hecho" />
     <title><g:message code="default.list.label" args="[entityName]" /></title>
     <script>
-        $( document ).ready(function() {
+        $( window ).load(function() {
             $('.disabled').click(function () {return false;});
         });
     </script>
