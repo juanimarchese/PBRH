@@ -32,9 +32,9 @@ class Especialidad {
         String especialidadStr
         for (int i = 0; i < especialidades.size(); i++) {
             if (i == especialidades.size() - 1) {
-                especialidadStr =+ especialidad.getValor()
+                especialidadStr =+ especialidades.get(i).getValor()
             } else {
-                especialidadStr =+ especialidad.getValor() + ", "
+                especialidadStr =+ especialidades.get(i).getValor() + ", "
             }
         }
         if (especialidades.contains(EnumEspecialidad.OTRO)) {

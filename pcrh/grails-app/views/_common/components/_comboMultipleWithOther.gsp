@@ -68,7 +68,7 @@
 
         <div>
 
-          <g:select id="${id}_sel" class="form-control required" name="val"
+          <g:select id="${id}_sel" class="form-control required" name="${id}_val"
                       from="${from}"
                       keys="${keys}"
                       multiple="multiple"/>
