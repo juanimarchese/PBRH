@@ -195,12 +195,7 @@
 </div>
 
 <div class="row">
-    %{--<div class="col-lg-4">
-        <g:render template="/_common/components/comboMultipleWithOther" model="[id:'especialidad',label: 'Especialidad',labelSeleccion: 'especialidades',name: 'especialidad.especialidades',nameOther: 'especialidad.otherDescription',
-                                                                        from: com.pcrh.enums.EnumEspecialidad.values()*.getValor(),keys: com.pcrh.enums.EnumEspecialidad.values()*.name(), value: hecho?.especialidad?.especialidades?.toString(),otherValue: hecho?.especialidad?.otherDescription
-        ]"/>
-    </div>--}%
-
+   
     <div class="col-lg-12">
         <div >
             <label class="control-label">Observaciones</label>
