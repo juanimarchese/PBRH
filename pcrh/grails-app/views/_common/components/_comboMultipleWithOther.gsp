@@ -1,9 +1,16 @@
 <script type="text/javascript">
     $( window ).load(function () {
-        var onChange = function (element, checked) {
-            if (checked) {
-                /*Todo Agregar HIDDENS que viajen para agregar a la lista*/
+        var createHiddens = function(){
+            $('#'+'${id}'+'_div_hidden').html("");
+            var values = $('#'+'${id}'+'_sel').val();
+            if (values != null && values.length > 0){
+                for (var i=0;i<values.length;i++){
+                    $('#'+'${id}'+'_div_hidden').append("<input type='hidden' value='"+values[i]+"' name='"+"${name}"+"["+i+"]"+"' />")
+                }
             }
+        }
+
+        var onChange = function (element, checked) {
             if (element.val() == "OTRO" && checked) {
                 $('#' + '${id}' + '_div_other').show();//else it is shown
                 $('#' + '${id}' + '_txt').addClass("required");
@@ -16,7 +23,18 @@
                 $('#' + '${id}' + '_div_ppal').removeClass("col-lg-5");
                 $('#' + '${id}' + '_div_ppal').addClass("col-lg-12");
             }
+            createHiddens();
         };
+
+        var setValues = function() {
+            var valuesToSet = '${value}';
+            var elements = valuesToSet.split(",");
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i] != undefined && elements[i] != "") {
+                    $('#' + '${id}' + '_sel').multiselect('select', elements[i]);
+                }
+            }
+        }
 
         var optionFour = {
             numberDisplayed: 4,
@@ -31,25 +49,15 @@
             nSelectedText: '${labelSeleccion}',
             onChange: onChange
         };
+
         $('#'+'${id}'+'_sel').multiselect(optionOne);
-        var valuesToSet = '${value}';
-        var elements = valuesToSet.split(",");
-        for (var i= 0; i< elements.length ;i++){
-            if (elements[i] != undefined && elements[i] != ""){
 
-                $('#'+'${id}'+'_sel').multiselect('select', elements[i]);
-            }
-        }
-
-        var createHiddens = function(){
-
-        }
-
+        setValues();
         $('#'+'${id}'+'_txt').removeClass("required");
         $('#'+'${id}'+'_div_other').hide(); //hide field on start
         $('#'+'${id}'+'_div_ppal').removeClass("col-lg-5");
         $('#'+'${id}'+'_div_ppal').addClass("col-lg-12");
-
+        createHiddens();
 
     });
 </script>
@@ -60,7 +68,7 @@
 
         <div>
 
-          <g:select id="${id}_sel" class="form-control required" name="${name}"
+          <g:select id="${id}_sel" class="form-control required" name="val"
                       from="${from}"
                       keys="${keys}"
                       multiple="multiple"/>
