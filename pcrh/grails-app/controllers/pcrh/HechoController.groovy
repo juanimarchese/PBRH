@@ -46,7 +46,7 @@ class HechoController {
             hecho.resultado.evidencias.removeAll(_toBeDeleted)
         }
 
-        if (!hecho.hasErrors() && hecho.save(flush: true)) {
+        if (!hecho.hasErrors() && hecho.perito.save(flush: true) && hecho.save(flush: true)) {
             flash.message = message(code: 'default.created.message', args: ["Hecho", hecho.idHecho])
             redirect(action: "index")
         } else {

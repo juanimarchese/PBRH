@@ -1,6 +1,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#'+'${id}'+'_txt').removeClass("required");
+        $('#'+'${id}'+'_sel').multiselect();
+
+       /* $('#'+'${id}'+'_txt').removeClass("required");
         $('#'+'${id}'+'_div_other').hide(); //hide field on start
         $('#'+'${id}'+'_div_ppal').removeClass("col-lg-5");
         $('#'+'${id}'+'_div_ppal').addClass("col-lg-12");
@@ -21,7 +23,7 @@
                 $('#'+'${id}'+'_div_ppal').removeClass("col-lg-12");
                 $('#'+'${id}'+'_div_ppal').addClass("col-lg-5");
             }
-        });
+        });*/
     });
 </script>
 
@@ -30,19 +32,27 @@
         <label class="control-label">${label}</label>
 
         <div>
-            <g:select id="${id}_sel" class="form-control required" name="${name}" noSelection="['': 'Seleccionar']"
+            <select id="${id}_sel" class="multiselect" multiple="multiple">
+                <option value="cheese">Cheese</option>
+                <option value="tomatoes">Tomatoes</option>
+                <option value="mozarella">Mozzarella</option>
+                <option value="mushrooms">Mushrooms</option>
+                <option value="pepperoni">Pepperoni</option>
+                <option value="onions">Onions</option>
+            </select>
+           %{--<g:select id="${id}_sel" class="form-control required" name="${name}" noSelection="['': 'Seleccionar']"
                       from="${from}"
                       keys="${keys}"
-                      value="${value}" />
+                      value="${value}" multiple="multiple"/>--}%
         </div>
     </div>
 
     <div id="${id}_div_other" class="col-lg-7">
-        <label class="control-label">Descripcion</label>
+     %{--   <label class="control-label">Descripcion</label>
 
         <div>
             <g:textField id="${id}_txt" class="form-control" name="${nameOther}" value="${otherValue}"/>
-        </div>
+        </div>--}%
     </div>
 
 </div>

@@ -7,7 +7,7 @@
             <label class="control-label">Numero</label>
 
             <div>
-                <g:textField class="form-control required" name="idHecho" value="${hecho?.idHecho}"/>
+                <g:textField class="form-control required" name="idHecho" id="idHecho" value="${hecho?.idHecho}"/>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
             <label class="control-label">Hora Solicitud</label>
 
             <div>
-                <g:textField class="form-control " name="horaSolicitud" value="${hecho?.horaSolicitud}"/>
+                <g:textField class="form-control hora" name="horaSolicitud"  value="${hecho?.horaSolicitud}"/>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
             <label class="control-label">Hora Arribo</label>
 
             <div>
-                <g:textField class="form-control " name="horaArribo" value="${hecho?.horaArribo}"/>
+                <g:textField class="form-control hora" name="horaArribo" value="${hecho?.horaArribo}"/>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
             <label class="control-label">Hora Final</label>
 
             <div>
-                <g:textField class="form-control " name="horaFinal" value="${hecho?.horaFinal}"/>
+                <g:textField class="form-control hora" name="horaFinal" value="${hecho?.horaFinal}"/>
             </div>
         </div>
     </div>

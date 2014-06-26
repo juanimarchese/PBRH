@@ -16,13 +16,14 @@
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'favicon.ico')}" sizes="72x72">
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'favicon.ico')}" sizes="114x114">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'validate.css')}" type="text/css">
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'own.css')}" type="text/css">
 
     <%-- Manual switch for the skin can be found in /view/_menu/_config.gsp --%>
-    <r:require modules="jquery"/> <%-- jQuery is required for Bootstrap! --%>
+    <r:require modules="jquery"/><%-- jQuery is required for Bootstrap! --%>
     <r:require modules="jquery-validate"/> <%-- jQuery is required for Bootstrap! --%>
     <r:require modules="bootstrap"/>
     <r:require modules="bootstrap_utils"/>
-
+   
     <r:layoutResources/>
     <g:layoutHead/>
 
