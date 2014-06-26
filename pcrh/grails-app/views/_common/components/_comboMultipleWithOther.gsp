@@ -40,7 +40,12 @@
                 $('#'+'${id}'+'_sel').multiselect('select', elements[i]);
             }
         }
-       $('#'+'${id}'+'_txt').removeClass("required");
+
+        var createHiddens = function(){
+
+        }
+
+        $('#'+'${id}'+'_txt').removeClass("required");
         $('#'+'${id}'+'_div_other').hide(); //hide field on start
         $('#'+'${id}'+'_div_ppal').removeClass("col-lg-5");
         $('#'+'${id}'+'_div_ppal').addClass("col-lg-12");
@@ -70,4 +75,9 @@
         </div>
     </div>
 
+    <div id="${id}_div_hidden">
+
+    </div>
 </div>
+
+

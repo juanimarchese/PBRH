@@ -9,36 +9,38 @@ import com.pcrh.enums.EnumEspecialidad
 class Especialidad {
 
     /* Default (injected) attributes of GORM */
-    Long	id
-    Long	version
+    Long id
+    Long version
 
     /* Automatic timestamping of GORM */
-    Date	dateCreated
-    Date	lastUpdated
+    Date dateCreated
+    Date lastUpdated
 
     List<EnumEspecialidad> especialidades;
     String otherDescription;
 
     static hasMany = [especialidades: EnumEspecialidad]
-    static	belongsTo	= [hecho: Hecho]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
+    static belongsTo = [hecho: Hecho]
+    // tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
     static constraints = {
-        especialidades(blank: false,nullable: false)
+        especialidades(blank: false, nullable: false)
     }
 
     @Override
     String toString() {
-        if (especialidades.contains(EnumEspecialidad.OTRO)){
-            return otherDescription;
-        } else {
-            String especialidadStr
-            for(int i = 0;i < especialidades.size(); i++){
-                if (i == especialidades.size()-1){
-                    especialidadStr =+ especialidad.getValor()
-                } else{
-                    especialidadStr =+ especialidad.getValor() + ", "
-                }
+
+        String especialidadStr
+        for (int i = 0; i < especialidades.size(); i++) {
+            if (i == especialidades.size() - 1) {
+                especialidadStr =+ especialidad.getValor()
+            } else {
+                especialidadStr =+ especialidad.getValor() + ", "
             }
-            return especialidadStr;
         }
+        if (especialidades.contains(EnumEspecialidad.OTRO)) {
+            especialidadStr =+ ',' + otherDescription;
+        }
+        return especialidadStr;
+
     }
 }
