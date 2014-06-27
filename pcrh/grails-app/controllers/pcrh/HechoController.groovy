@@ -1,5 +1,6 @@
 package pcrh
 
+import com.pcrh.Documento
 import com.pcrh.Evidencia
 import com.pcrh.Hecho
 import com.pcrh.ResultadoHecho
@@ -57,9 +58,8 @@ class HechoController {
     }
 
       def show() {
-          def hecho = Hecho.get(params.id + '/' + params.anio)
-          if (!hecho) {
-              flash.message = message(code: 'default.not.found.message', args: [message(code: '_DemoPage.label', default: 'Hecho'), params.id])
+          if(!Hecho.exists(params.id + '/' + params.anio)){
+              flash.message = message(code: 'default.not.found.message', args: ["Hecho", params.id])
               redirect(action: "list")
               return
           }
@@ -68,6 +68,11 @@ class HechoController {
 
       def edit() {
           def idHecho = params.id + "/" + params.anio
+          if(!Hecho.exists(idHecho)){
+              flash.message = "Error - El hecho no existe"
+              redirect(action: "list")
+              return;
+          }
           def hecho = Hecho.get(idHecho)
           hecho?.clearErrors()
           hecho?.validate()
@@ -139,4 +144,63 @@ class HechoController {
           redirect(action: "list")
 
       }
+
+    private Documento createDocumento(file) {
+        def documentInstance = new Documento()
+        documentInstance.filename = file.originalFilename
+        documentInstance.filedata = file.getBytes()
+        documentInstance.save(flush: true)
+        documentInstance
+    }
+
+    def uploadPU(){
+        def idHecho = params.id + "/" + params.anio
+        if(!Hecho.exists(idHecho)){
+            flash.message = "Error - El hecho no existe"
+            redirect(action: "list")
+            return;
+        }
+            def hecho = Hecho.get(idHecho)
+            hecho?.clearErrors()
+            hecho?.validate()
+            [hecho: hecho]
+
+    }
+
+    def uploadPUFile() {
+        def file = request.getFile('file');
+        if(file.empty) {
+            flash.message = "El archivo no puede estar vacio"
+        } else {
+            def idHecho = params.idHecho
+            def hecho = Hecho.get(idHecho)
+            if(hecho.getPu() != null){
+                hecho.getPu().delete(flush: true);
+            }
+            Documento documentInstance = createDocumento(file)
+            hecho.setPu(documentInstance);
+            hecho.save(flush: true);
+        }
+        redirect (action:'list')
+    }
+
+    def download(long id) {
+        Documento documentInstance = Documento.get(id)
+        if ( documentInstance == null) {
+            flash.message = "Documento no encontrado"
+            redirect (action:'list')
+        } else {
+            response.setContentType("APPLICATION/OCTET-STREAM")
+            response.setHeader("Content-Disposition", "Attachment;Filename=\"${documentInstance.filename}\"")
+
+            def outputStream = response.getOutputStream()
+            outputStream << documentInstance.filedata
+            outputStream.flush()
+            outputStream.close()
+        }
+    }
+
+
+
+
 }
