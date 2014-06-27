@@ -129,7 +129,7 @@
             <label class="control-label">Dirección del Hecho</label>
 
             <div>
-                <g:textField class="form-control " name="lugarHecho.direccion" value="${hecho?.lugarHecho?.direccion}"/>
+                <g:textField class="form-control required" name="lugarHecho.direccion" value="${hecho?.lugarHecho?.direccion}"/>
             </div>
         </div>
     </div>
@@ -139,7 +139,7 @@
             <label class="control-label">Localidad del Hecho</label>
 
             <div>
-                <g:textField class="form-control " name="lugarHecho.localidad" value="${hecho?.lugarHecho?.localidad}"/>
+                <g:textField class="form-control required" name="lugarHecho.localidad" value="${hecho?.lugarHecho?.localidad}"/>
             </div>
         </div>
     </div>

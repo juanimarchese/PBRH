@@ -16,15 +16,13 @@ class Especialidad {
     Date dateCreated
     Date lastUpdated
 
-    List<EnumEspecialidad> especialidades;
+    List<EnumEspecialidad> especialidades ;
     String otherDescription;
 
     static hasMany = [especialidades: EnumEspecialidad]
     static belongsTo = [hecho: Hecho]
     // tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
-    static constraints = {
-        especialidades(blank: false, nullable: false)
-    }
+
 
     /*@Override
     String toString() {

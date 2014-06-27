@@ -27,11 +27,18 @@ class HechoController {
     }
 
     def create() {
-        def hecho = new Hecho(params)
+        def hecho = new Hecho()
         [hecho: hecho]
     }
 
     def save() {
+        def idHecho = params.idHecho
+
+        if(Hecho.exists(idHecho)){
+            flash.message = "Error al crear el hecho - Ya existe ese numero de hecho"
+            redirect(action: "create", params: params)
+            return;
+        }
         def hecho = new Hecho()
         hecho.properties = params
 
