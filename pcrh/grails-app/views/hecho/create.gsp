@@ -19,94 +19,20 @@
 	</div>
 	</g:hasErrors>
 
-    <script type="text/javascript">
-        $( window ).load(function (){
-                $.validator.addMethod(
-                        "caracter",
-                        function(value, element, regexp) {
-                            var re = new RegExp(regexp);
-                            return this.optional(element) || re.test(value);
-                        },
-                        "Ingrese una letra mayuscula"
-                );
-
-            $.validator.addMethod(
-                    "numero",
-                    function(value, element, regexp) {
-                        var re = new RegExp(regexp);
-                        return this.optional(element) || re.test(value);
-                    },
-                    "Ingrese un número"
-            );
-
-                $.validator.addMethod(
-                        "hora",
-                        function(value, element, regexp) {
-                            var re = new RegExp(regexp);
-                            return this.optional(element) || re.test(value);
-                        },
-                        "El formato debe ser HH:mm (HH: [00-23],mm: [00-59])  Ej: 12:15, 05:05"
-                );
-
-                $.validator.addMethod(
-                        "idHecho",
-                        function(value, element, regexp) {
-                            var re = new RegExp(regexp);
-                            return this.optional(element) || re.test(value);
-                        },
-                        "El formato debe ser Numero/Año, Ej: 1/2014"
-                );
-
-                $("#form").validate();
-                $(".required").each(function (item) {
-                    $(this).rules("add", {
-                        required: true
-                    });
-                });
-                $("#idHecho").rules("add", {
-                    idHecho: "^[0-9]+\/[0-9]{4}$"
-                });
-
-                $(".hora").each(function (item) {
-                    $(this).rules("add", {
-                        hora: "^([0-1][0-9]|2[0-3]):[0-5][0-9]$"
-                    });
-                });
-
-                $(".caracter").each(function (item) {
-                    $(this).rules("add", {
-                        caracter: "^[A-Z]$"
-                    });
-                });
-
-                $(".numero").each(function (item) {
-                    $(this).rules("add", {
-                        numero: "^[A-Z]$"
-                    });
-                });
-
-
-            $(".datepicker").each(function (item) {
-                    $(this).attr('readonly','readonly');
-                    $(this).addClass("readOnlyDP");
-                });
-
-
-        });
-    </script>
+    <g:render template="commonjs"/>
 	<g:form name="form" action="save" class="form-horizontal"  enctype="multipart/form-data">
 		<fieldset class="form">
 			<g:render template="form"/>
 		</fieldset>
         <br>
 		<div class="form-actions" align="center">
-			<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+			<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" onclick="submitForm();return false;" />
             <g:link controller="main" action="index" class="btn btn-danger">Cancelar</g:link>
 		</div>
 	</g:form>
     <!-- Render the evidencia template (_evidencia.gsp) hidden so we can clone it -->
         <g:render template='evidencia' model="['evidencia':null,'i':'_clone','hidden':true]"/>
-    <!-- Render the evidencia template (_evidencia.gsp) hidden so we can clone it -->
+<!-- Render the evidencia template (_evidencia.gsp) hidden so we can clone it -->
 
 </section>
 		

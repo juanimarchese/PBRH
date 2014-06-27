@@ -193,7 +193,7 @@ $(window).load(function(){onChangeEvidencia();});
         %{--Comobo de peritos--}%
         <g:render template="/_common/components/comboMultipleObjectWithOther"
                   model="[id  : 'peritos', label: 'Peritos', labelSeleccion: 'peritos', name: 'peritos.peritos', nameOther: 'peritos.otros',
-                          from: Persona.findAll()*.toString(), keys: Persona.findAll()*.getId(), value: hecho?.peritos?.peritos?.toString(), otherValue: hecho?.peritos?.otros
+                          from: Persona.findAll()*.toString(), keys: Persona.findAll()*.getId(), value: hecho?.peritos?.peritosIDs(), otherValue: hecho?.peritos?.otros
                   ]"/>
     </div>
 
@@ -233,7 +233,7 @@ $(window).load(function(){onChangeEvidencia();});
         </div>
     </div>
 
-    <div class="col-lg-4 evidencia">
+    <div class="col-lg-4">
 
         <label class="control-label">Moradores</label>
 
@@ -243,7 +243,7 @@ $(window).load(function(){onChangeEvidencia();});
         </div>
     </div>
 
-    <div class="col-lg-4 evidencia" >
+    <div class="col-lg-4" >
 
         <label class="control-label">Preservado</label>
 

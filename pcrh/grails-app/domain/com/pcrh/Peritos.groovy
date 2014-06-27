@@ -29,6 +29,18 @@ class Peritos {
     static constraints = {
     }*/
 
+    public String peritosIDs(){
+        String ids = "[";
+        for (int i= 0; i< peritos.size();i++){
+            if(i == peritos.size()-1){
+                ids += peritos.get(i).getId()
+            } else {
+                ids += peritos.get(i).getId() + ", "
+            }
+        }
+        ids += "]";
+        return ids;
+    }
     /*
      * Methods of the Domain Class
      */

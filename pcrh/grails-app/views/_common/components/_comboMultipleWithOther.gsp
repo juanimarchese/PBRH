@@ -28,7 +28,9 @@
 
         var setValues = function() {
             var valuesToSet = '${value}';
-            var elements = valuesToSet.split(",");
+            valuesToSet = valuesToSet.replace('[','');
+            valuesToSet = valuesToSet.replace(']','');
+            var elements = valuesToSet.split(", ");
             for (var i = 0; i < elements.length; i++) {
                 if (elements[i] != undefined && elements[i] != "") {
                     $('#' + '${id}' + '_sel').multiselect('select', elements[i]);

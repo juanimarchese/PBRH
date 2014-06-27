@@ -64,14 +64,16 @@ class HechoController {
           }
           [hecho: hecho]
       }
-    /*
+
       def edit() {
-          def _DemoPageInstance = session.demopage
-          _DemoPageInstance?.clearErrors()
-          _DemoPageInstance?.validate()
-          [_DemoPageInstance: _DemoPageInstance]
+          def idHecho = params.id + "/" + params.anio
+          def hecho = Hecho.get(idHecho)
+          hecho?.clearErrors()
+          hecho?.validate()
+          [hecho: hecho]
       }
 
+    /*
       def update() {
           def _DemoPageInstance = session.demopage
           if (!_DemoPageInstance) {

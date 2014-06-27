@@ -1,9 +1,10 @@
 <script type="text/javascript">
     var childCount = ${resultadoInstance?.evidencias?.size()} + 0;
 
-    var cantFilas = 0;
+    var cantFilas = childCount;
     $( window ).load(function () {
-        $("#headerChildList").hide();
+        if(childCount == 0) $("#headerChildList").hide();
+        else $("#noneChildList").hide();
     })
 
 
@@ -54,9 +55,10 @@
 
         $("#childList").append(clone);
 
+        /*$("#form").validate();
         sectorInput.rules("add", { required:true,caracter: "^[A-Z]$"  });
         numeroInput.rules("add", {required:true,numero: "^[0-9]+$"});
-        cantInput.rules("add", {required:true,numero: "^[0-9]+$"});
+        cantInput.rules("add", {required:true,numero: "^[0-9]+$"});*/
 
         clone.show();
         sectorInput.focus();

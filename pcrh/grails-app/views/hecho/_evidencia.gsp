@@ -4,11 +4,11 @@
     <g:hiddenField name='resultado.evidencias[${i}].newInstance' value='false'/>
 <div class="row" style="padding-top: 5px">
     <div class="col-lg-1">
-        <g:textField class="form-control" name='resultado.evidencias[${i}].sector' value='${evidencia?.sector}' />
+        <g:textField class="form-control required caracter" name='resultado.evidencias[${i}].sector' value='${evidencia?.sector}' />
 
     </div>
     <div class="col-lg-1">
-        <g:textField class="form-control" name='resultado.evidencias[${i}].numero' value='${evidencia?.numero}' />
+        <g:textField class="form-control required numero" name='resultado.evidencias[${i}].numero' value='${evidencia?.numero}' />
 
     </div>
     <div class="col-lg-2">
@@ -19,7 +19,7 @@
 
     </div>
     <div class="col-lg-1">
-        <g:textField class="form-control" name='resultado.evidencias[${i}].cantidad' value='${evidencia?.cantidad}' />
+        <g:textField class="form-control required numero" name='resultado.evidencias[${i}].cantidad' value='${evidencia?.cantidad}' />
 
     </div>
     <div class="col-lg-6">
