@@ -20,7 +20,9 @@ class Peritos {
 	static	belongsTo	= [hecho: Hecho]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
 	static	hasMany		= [peritos: Persona]	// tells GORM to associate other domain objects for a 1-n or n-m mapping
 //	static	mappedBy	= []	// specifies which property should be used in a mapping 
-
+    static mapping = {
+        peritos cascade:'save-update'
+    }
    /* static mapping = {
     }
 

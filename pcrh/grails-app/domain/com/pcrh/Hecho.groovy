@@ -19,6 +19,8 @@ class Hecho implements Serializable{
     String idHecho
     @BindingFormat('dd/MM/yyyy')
     Date fechaHecho
+    @BindingFormat('dd/MM/yyyy')
+    Date fechaPericia
     String horaSolicitud
     String horaArribo
     String horaFinal

@@ -14,7 +14,7 @@
 
     <div class="col-lg-4">
         <div>
-            <label class="control-label">Fecha</label>
+            <label class="control-label">Fecha Hecho</label>
             <div>
                 <bs:datePicker class="form-control required" name="fechaHecho" precision="day" value="${hecho?.fechaHecho}"
                                noSelection="['': '']"/>
@@ -23,10 +23,16 @@
     </div>
 
     <div class="col-lg-4">
-        <g:render template="/_common/components/comboWithOther" model="[id:'caratula',label: 'Caratula',name: 'caratula.caratula',nameOther: 'caratula.otherDescription',
-                                                                        from: com.pcrh.enums.EnumCaratula.values()*.getValor(),keys: com.pcrh.enums.EnumCaratula.values()*.name(), value: hecho?.caratula?.caratula?.name(),otherValue: hecho?.caratula?.otherDescription
-        ]"/>
+        <div>
+            <label class="control-label">Fecha Pericia</label>
+            <div>
+                <bs:datePicker class="form-control required" name="fechaPericia" precision="day" value="${hecho?.fechaPericia}"
+                               noSelection="['': '']"/>
+            </div>
+        </div>
     </div>
+
+
 </div>
 
 <div class="row">
@@ -69,8 +75,8 @@
     </div>
 
     <div class="col-lg-4">
-        <g:render template="/_common/components/comboWithOther" model="[id:'fr',label: 'Forma Recepción',name: 'formaRecepcion.formaRecepcion',nameOther: 'formaRecepcion.otherDescription',
-                                                                        from: com.pcrh.enums.EnumFormaRecepcion.values()*.getValor(),keys: com.pcrh.enums.EnumFormaRecepcion.values()*.name(), value: hecho?.formaRecepcion?.formaRecepcion?.name(),otherValue: hecho?.formaRecepcion?.otherDescription
+        <g:render template="/_common/components/comboWithOther" model="[id:'caratula',label: 'Caratula',name: 'caratula.caratula',nameOther: 'caratula.otherDescription',
+                                                                        from: com.pcrh.enums.EnumCaratula.values()*.getValor(),keys: com.pcrh.enums.EnumCaratula.values()*.name(), value: hecho?.caratula?.caratula?.name(),otherValue: hecho?.caratula?.otherDescription
         ]"/>
     </div>
 
@@ -152,35 +158,7 @@
 </div>
 
 <div class="row">
-    %{--<div class="col-lg-4">
-        <div >
-            <label class="control-label">Jerarquia Perito</label>
 
-            <div>
-                <g:textField class="form-control " name="perito.jerarquia" value="${hecho?.perito?.jerarquia}"/>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-4">
-        <div >
-            <label class="control-label">Nombre Perito</label>
-
-            <div>
-                <g:textField class="form-control " name="perito.nombre" value="${hecho?.perito?.nombre}"/>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-4">
-        <div >
-            <label class="control-label">Apellido Perito</label>
-
-            <div>
-                <g:textField class="form-control " name="perito.apellido" value="${hecho?.perito?.apellido}"/>
-            </div>
-        </div>
-    </div>--}%
     <div class="col-lg-4">
         <g:render template="/_common/components/comboMultipleWithOther" model="[id:'especialidad',label: 'Especialidad',labelSeleccion: 'especialidades',name: 'especialidad.especialidades',nameOther: 'especialidad.otherDescription',
                                                                                 from: com.pcrh.enums.EnumEspecialidad.values()*.getValor(),keys: com.pcrh.enums.EnumEspecialidad.values()*.name(), value: hecho?.especialidad?.especialidades?.toString(),otherValue: hecho?.especialidad?.otherDescription
@@ -190,6 +168,12 @@
         %{--Comobo de peritos--}%
         <g:render template="/_common/components/comboMultipleObjectWithOther" model="[id:'peritos',label: 'Peritos',labelSeleccion: 'peritos',name: 'peritos.peritos',nameOther: 'peritos.otros',
                                                                                 from: Persona.findAll()*.toString(),keys: Persona.findAll()*.getId(), value: hecho?.peritos?.peritos?.toString(),otherValue: hecho?.peritos?.otros
+        ]"/>
+    </div>
+
+    <div class="col-lg-4">
+        <g:render template="/_common/components/comboWithOther" model="[id:'fr',label: 'Forma Recepción',name: 'formaRecepcion.formaRecepcion',nameOther: 'formaRecepcion.otherDescription',
+                                                                        from: com.pcrh.enums.EnumFormaRecepcion.values()*.getValor(),keys: com.pcrh.enums.EnumFormaRecepcion.values()*.name(), value: hecho?.formaRecepcion?.formaRecepcion?.name(),otherValue: hecho?.formaRecepcion?.otherDescription
         ]"/>
     </div>
 </div>

@@ -20,7 +20,7 @@ import com.pcrh.security.UserRole
 class BootStrap {
 
     def init = { servletContext ->
-       def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+      /* def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
         def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
         def jefeRole = new Role(authority: 'ROLE_JEFE').save(flush: true)
 
@@ -41,7 +41,7 @@ class BootStrap {
         UserRole.create jefeUser, userRole, true
 
         def persona = new Persona(nombre: "Pedro",apellido: "Suarez",jerarquia: "Oficial").save(flush: true)
-        def person2 = new Persona(nombre: "Pedro2",apellido: "Suarez2",jerarquia: "Oficial").save(flush: true)
+        def person2 = new Persona(nombre: "Pedro2",apellido: "Suarez2",jerarquia: "Oficial").save(flush: true)*/
 
 
         /*  def caratula = new Caratula(caratula: EnumCaratula.ABUSO_ARMA)
