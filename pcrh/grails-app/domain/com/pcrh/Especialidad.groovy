@@ -26,7 +26,7 @@ class Especialidad {
         especialidades(blank: false, nullable: false)
     }
 
-    @Override
+    /*@Override
     String toString() {
 
         String especialidadStr
@@ -42,5 +42,5 @@ class Especialidad {
         }
         return especialidadStr;
 
-    }
+    }*/
 }

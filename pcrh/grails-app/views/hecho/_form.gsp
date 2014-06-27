@@ -1,4 +1,4 @@
-<%@ page import="com.pcrh.Hecho" %>
+<%@ page import="com.pcrh.Persona; com.pcrh.Hecho" %>
 <h3>Datos Generales</h3>
 <hr style="border-top: 2px solid #eeeeee;margin-top: 1px">
 <div class="row">
@@ -188,9 +188,9 @@
     </div>
     <div class="col-lg-4">
         %{--Comobo de peritos--}%
-       %{-- <g:render template="/_common/components/comboMultipleWithOther" model="[id:'peritos',label: 'Peritos',labelSeleccion: 'peritos',name: 'peritos',nameOther: 'peritos.otherDescription',
-                                                                                from: com.pcrh.enums.EnumEspecialidad.values()*.getValor(),keys: com.pcrh.enums.EnumEspecialidad.values()*.name(), value: hecho?.especialidad?.especialidades?.toString(),otherValue: hecho?.especialidad?.otherDescription
-        ]"/>--}%
+        <g:render template="/_common/components/comboMultipleObjectWithOther" model="[id:'peritos',label: 'Peritos',labelSeleccion: 'peritos',name: 'peritos.peritos',nameOther: 'peritos.otros',
+                                                                                from: Persona.findAll()*.toString(),keys: Persona.findAll()*.getId(), value: hecho?.peritos?.peritos?.toString(),otherValue: hecho?.peritos?.otros
+        ]"/>
     </div>
 </div>
 

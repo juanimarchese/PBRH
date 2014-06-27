@@ -17,4 +17,10 @@ class Persona {
     String nombre
     String apellido
     String jerarquia
+
+
+    @Override
+    public String toString() {
+        return jerarquia + " " + apellido + " " + nombre;
+    }
 }

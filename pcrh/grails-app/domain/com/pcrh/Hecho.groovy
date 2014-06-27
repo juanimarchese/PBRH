@@ -31,7 +31,7 @@ class Hecho implements Serializable{
     String imputado
     LugarHecho lugarHecho
     String magistradoInterviniente
-    Persona perito
+    Peritos peritos
     Documento pu
     Especialidad especialidad
     Documento lef

@@ -20,7 +20,7 @@ import com.pcrh.security.UserRole
 class BootStrap {
 
     def init = { servletContext ->
-      /* def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+       def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
         def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
         def jefeRole = new Role(authority: 'ROLE_JEFE').save(flush: true)
 
@@ -40,33 +40,37 @@ class BootStrap {
         UserRole.create jefeUser, jefeRole, true
         UserRole.create jefeUser, userRole, true
 
-        def caratula = new Caratula(caratula: EnumCaratula.ABUSO_ARMA)
-        def caratulaOther = new Caratula(caratula: EnumCaratula.OTRO,otherDescription: "hola")
-        def comisaria = new Comisaria(comisaria: EnumComisaria.JCP_S)
-        def comisariaOther = new Comisaria(comisaria: EnumComisaria.OTRO,otherDescription: "hola")
-        def especialidad = new Especialidad(especialidad: EnumEspecialidad.FOTOGRAFIA)
-        def especialidadOther = new Especialidad(especialidad: EnumEspecialidad.OTRO,otherDescription: "Hola")
-        def formaRecepcion = new FormaRecepcion(formaRecepcion: EnumFormaRecepcion.OFICIO)
-        def formaRecepcionOther = new FormaRecepcion(formaRecepcion: EnumFormaRecepcion.OTRO,otherDescription: "Hola")
-        def lugarHecho = new LugarHecho(direccion: "Tribu",localidad: "San Miguel",zona: EnumZona.RUTA)
-        def lugarHecho2 = new LugarHecho(direccion: "Tribu",localidad: "San Miguel",zona: EnumZona.RUTA)
         def persona = new Persona(nombre: "Pedro",apellido: "Suarez",jerarquia: "Oficial").save(flush: true)
-        def evidencia = new Evidencia(sector: 'A',numero: 1,tipo: EnumTipoEvidencia.EFECTOS_BALISTICOS,cantidad: 4,observaciones: "HOLASD")
-        def evidencia2 = new Evidencia(sector: 'A',numero: 1,tipo: EnumTipoEvidencia.EFECTOS_BALISTICOS,cantidad: 4,observaciones: "HOLASD")
-        def resultado = new ResultadoHecho(noPreservado: false,noMoradores: true,sinEvidencia: false);
-        resultado.addToEvidencias(evidencia);
-        def resultado2 = new ResultadoHecho(noPreservado: false,noMoradores: true,sinEvidencia: false);
-        resultado2.addToEvidencias(evidencia2);
-        def hecho = new Hecho(idHecho:"1/2014", fechaHecho: new Date(),horaSolicitud: "12:12:12", horaArribo: "12:12:12",horaFinal: "12:12:12",
-                comisariaInterviniente: comisaria, caratula:caratula, formaRecepcion:formaRecepcion, movil:"12", observaciones:"Hola",
-                victima: "Luis Perez", imputado:"Jose Suarez", lugarHecho: lugarHecho, magistradoInterviniente:"Pedro Suarez",
-                perito: persona, pu: null, especialidad: especialidad, lef: null,resultado: resultado).save(flush: true)
-        def hecho1 = new Hecho(idHecho:"2/2014", fechaHecho: new Date(),horaSolicitud: "12:12:12", horaArribo: "12:12:12",horaFinal: "12:12:12",
-                comisariaInterviniente: comisariaOther, caratula:caratulaOther, formaRecepcion:formaRecepcionOther, movil:"12", observaciones:"Hola",
-                victima: "Luis Perez", imputado:"Jose Suarez", lugarHecho: lugarHecho2, magistradoInterviniente:"Pedro Suarez",
-                perito: persona, pu: null, especialidad: especialidadOther, lef: null,resultado: resultado2)
-        hecho1.addToHechosRelacionados(hecho)
-        hecho1.save(flush: true)*/
+        def person2 = new Persona(nombre: "Pedro2",apellido: "Suarez2",jerarquia: "Oficial").save(flush: true)
+
+
+        /*  def caratula = new Caratula(caratula: EnumCaratula.ABUSO_ARMA)
+          def caratulaOther = new Caratula(caratula: EnumCaratula.OTRO,otherDescription: "hola")
+          def comisaria = new Comisaria(comisaria: EnumComisaria.JCP_S)
+          def comisariaOther = new Comisaria(comisaria: EnumComisaria.OTRO,otherDescription: "hola")
+          def especialidad = new Especialidad(especialidad: EnumEspecialidad.FOTOGRAFIA)
+          def especialidadOther = new Especialidad(especialidad: EnumEspecialidad.OTRO,otherDescription: "Hola")
+          def formaRecepcion = new FormaRecepcion(formaRecepcion: EnumFormaRecepcion.OFICIO)
+          def formaRecepcionOther = new FormaRecepcion(formaRecepcion: EnumFormaRecepcion.OTRO,otherDescription: "Hola")
+          def lugarHecho = new LugarHecho(direccion: "Tribu",localidad: "San Miguel",zona: EnumZona.RUTA)
+          def lugarHecho2 = new LugarHecho(direccion: "Tribu",localidad: "San Miguel",zona: EnumZona.RUTA)
+          def persona = new Persona(nombre: "Pedro",apellido: "Suarez",jerarquia: "Oficial").save(flush: true)
+          def evidencia = new Evidencia(sector: 'A',numero: 1,tipo: EnumTipoEvidencia.EFECTOS_BALISTICOS,cantidad: 4,observaciones: "HOLASD")
+          def evidencia2 = new Evidencia(sector: 'A',numero: 1,tipo: EnumTipoEvidencia.EFECTOS_BALISTICOS,cantidad: 4,observaciones: "HOLASD")
+          def resultado = new ResultadoHecho(noPreservado: false,noMoradores: true,sinEvidencia: false);
+          resultado.addToEvidencias(evidencia);
+          def resultado2 = new ResultadoHecho(noPreservado: false,noMoradores: true,sinEvidencia: false);
+          resultado2.addToEvidencias(evidencia2);
+          def hecho = new Hecho(idHecho:"1/2014", fechaHecho: new Date(),horaSolicitud: "12:12:12", horaArribo: "12:12:12",horaFinal: "12:12:12",
+                  comisariaInterviniente: comisaria, caratula:caratula, formaRecepcion:formaRecepcion, movil:"12", observaciones:"Hola",
+                  victima: "Luis Perez", imputado:"Jose Suarez", lugarHecho: lugarHecho, magistradoInterviniente:"Pedro Suarez",
+                  perito: persona, pu: null, especialidad: especialidad, lef: null,resultado: resultado).save(flush: true)
+          def hecho1 = new Hecho(idHecho:"2/2014", fechaHecho: new Date(),horaSolicitud: "12:12:12", horaArribo: "12:12:12",horaFinal: "12:12:12",
+                  comisariaInterviniente: comisariaOther, caratula:caratulaOther, formaRecepcion:formaRecepcionOther, movil:"12", observaciones:"Hola",
+                  victima: "Luis Perez", imputado:"Jose Suarez", lugarHecho: lugarHecho2, magistradoInterviniente:"Pedro Suarez",
+                  perito: persona, pu: null, especialidad: especialidadOther, lef: null,resultado: resultado2)
+          hecho1.addToHechosRelacionados(hecho)
+          hecho1.save(flush: true)*/
     }
     def destroy = {
     }

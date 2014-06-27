@@ -70,7 +70,7 @@
         <br>
 		<div class="form-actions" align="center">
 			<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-            <button class="btn" type="reset">Limpiar</button>
+            <g:link controller="main" action="index" class="btn btn-danger">Cancelar</g:link>
 		</div>
 	</g:form>
     <!-- Render the evidencia template (_evidencia.gsp) hidden so we can clone it -->
