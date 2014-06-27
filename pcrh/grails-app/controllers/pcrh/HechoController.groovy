@@ -184,6 +184,37 @@ class HechoController {
         redirect (action:'list')
     }
 
+    def uploadLEF(){
+        def idHecho = params.id + "/" + params.anio
+        if(!Hecho.exists(idHecho)){
+            flash.message = "Error - El hecho no existe"
+            redirect(action: "list")
+            return;
+        }
+        def hecho = Hecho.get(idHecho)
+        hecho?.clearErrors()
+        hecho?.validate()
+        [hecho: hecho]
+
+    }
+
+    def uploadLEFFile() {
+        def file = request.getFile('file');
+        if(file.empty) {
+            flash.message = "El archivo no puede estar vacio"
+        } else {
+            def idHecho = params.idHecho
+            def hecho = Hecho.get(idHecho)
+            if(hecho.getLef() != null){
+                hecho.getLef().delete(flush: true);
+            }
+            Documento documentInstance = createDocumento(file)
+            hecho.setLef(documentInstance);
+            hecho.save(flush: true);
+        }
+        redirect (action:'list')
+    }
+
     def download(long id) {
         Documento documentInstance = Documento.get(id)
         if ( documentInstance == null) {

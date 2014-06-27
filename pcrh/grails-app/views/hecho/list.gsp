@@ -34,6 +34,7 @@
             <g:sortableColumn property="magistradoInterviniente" title="Magistrado" />
 
             <th style="color: #428bca">PU</th>
+            <th style="color: #428bca">LEF</th>
             <th style="color: #428bca">Acciones</th>
 
         </tr>
@@ -60,6 +61,15 @@
                     </g:else>
                 </div>
                 </td>
+                <td>
+                    <div align="center">
+                    <g:if test="${hechoVar?.lef != null}">
+                        <g:link action="download" id="${hechoVar?.lef?.id}" title="Descargar LEF" role="button" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-download"></i></g:link>
+                    </g:if><g:else>
+                        -
+                    </g:else>
+                </div>
+                </td>
 
                 <td>
                     <div align="center">
@@ -68,9 +78,14 @@
                                 <i class="glyphicon glyphicon-upload"></i> PU
                             </g:link>
                         </span>
+                        <span class="">
+                            <g:link action="uploadLEF" params="[id: hechoVar.idHechoNumero , anio: hechoVar.idHechoAnio]" role="button" class="btn btn-primary btn-sm" title="Subir LEF">
+                                <i class="glyphicon glyphicon-upload"></i> LEF
+                            </g:link>
+                        </span>
                     <span class="">
                         <g:link action="edit" params="[id: hechoVar.idHechoNumero , anio: hechoVar.idHechoAnio]" role="button" class="btn btn-success btn-sm" title="Editar">
-                            <i class="glyphicon glyphicon-pencil"></i> Editar
+                            <i class="glyphicon glyphicon-pencil"></i>
                         </g:link>
                     </span>
 
