@@ -1,4 +1,4 @@
-<nav id="Navbar" class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+<nav id="Navbar" class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
 
     <div style="background-image:url('${resource(dir: "images", file: "background.jpg")}');height: 100px">
         <div align="center">
@@ -24,9 +24,9 @@
 
 		<div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
 
-		<ul class="nav navbar-nav">
+
 			<g:render template="/_menu/controller"/>
-		</ul>
+
 
     	<ul class="nav navbar-nav navbar-right">
  			<g:render template="/_menu/admin"/>
@@ -36,3 +36,4 @@
 		</div>
 	</div>
 </nav>
+
