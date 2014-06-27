@@ -132,7 +132,7 @@
         <div class="col-lg-6">
             <label class="control-label">Observaciones</label>
         </div>
-        <div class="col-lg-1 pull-right">
+        <div class="col-lg-1 pull-right acciones">
             <label class="control-label">Acciones</label>
         </div>
 

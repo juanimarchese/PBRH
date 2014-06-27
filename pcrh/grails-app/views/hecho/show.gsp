@@ -11,8 +11,17 @@
     <script>
         $( window ).load(function() {
             $('#show-hecho').find('input, textarea, button, select').attr('disabled','disabled');
-
+            $('.form .btn').each(function(){
+                $(this).hide()
+            });
+            $('.form .acciones').each(function(){
+                $(this).hide()
+            });
+            $(".multiselect").removeClass("disabled");
+            $(".multiselect").removeAttr("disabled");
+            $(".multiselect-container input").each(function(){$(this).attr("disabled","disabled")})
         })
+
     </script>
 </head>
 
@@ -26,7 +35,15 @@
 
 
 </section>
+<script>
+    $( window ).load(function() {
 
+        $(".multiselect").removeClass("disabled");
+        $(".multiselect").removeAttr("disabled");
+        $(".multiselect-container input").each(function(){$(this).attr("disabled","disabled")})
+    })
+
+</script>
 </body>
 
 </html>
