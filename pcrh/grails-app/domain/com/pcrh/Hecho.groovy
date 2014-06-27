@@ -39,7 +39,6 @@ class Hecho implements Serializable{
     Documento lef
     ResultadoHecho resultado
 
-	
 	static	hasMany		= [hechosRelacionados: Hecho]	// tells GORM to associate other domain objects for a 1-n or n-m mapping
     static mappedBy = [hechosRelacionados:"hechosRelacionados" ]
     static mapping = {
