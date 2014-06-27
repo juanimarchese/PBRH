@@ -1,17 +1,27 @@
 <%@ page import="com.pcrh.Persona; com.pcrh.Hecho" %>
 <script type="application/javascript">
-function onChangeEvidencia(){
-    if($("#sinEvidencia").val() == 0){
-      $(".evidencia").each(function(item){
-        $(this).hide()
-      });
-    } else {
-        $(".evidencia").each(function(item){
-            $(this).show()
-        });
+    function hideShow(id, classId) {
+        if ($(id).val() == 0) {
+            $(classId).each(function (item) {
+                $(this).hide()
+            });
+        } else {
+            $(classId).each(function (item) {
+                $(this).show()
+            });
+        }
     }
-}
-$(window).load(function(){onChangeEvidencia();});
+
+    function onChangeEvidencia() {
+        hideShow("#sinEvidencia", ".evidencia")
+    }
+    function onChangeConsigna() {
+        hideShow("#consignaPolicial", ".consigna")
+    }
+    $(window).load(function () {
+        onChangeEvidencia();
+        onChangeConsigna();
+    });
 
 </script>
 
@@ -207,6 +217,30 @@ $(window).load(function(){onChangeEvidencia();});
 
 <div class="row">
 
+    <div class="col-lg-4">
+
+        <label class="control-label">Consigna Policial</label>
+
+        <div>
+            <g:select class="form-control required" id="consignaPolicial" name="consignaPolicial" from="${[1, 0]}"
+                      value="${hecho?.consignaPolicial ?: 0}" valueMessagePrefix="boolean.select"
+                      onchange="onChangeConsigna();"/>
+        </div>
+    </div>
+
+    <div class="col-lg-4 consigna">
+
+        <label class="control-label">Movil Consigna</label>
+
+        <div>
+            <g:textField class="form-control " name="movilConsigna" value="${hecho?.movilConsigna}"/>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
     <div class="col-lg-12">
         <div>
             <label class="control-label">Observaciones</label>
@@ -229,7 +263,8 @@ $(window).load(function(){onChangeEvidencia();});
 
         <div>
             <g:select class="form-control required" id="sinEvidencia" name="resultado.sinEvidencia" from="${[1, 0]}"
-                      value="${hecho?.resultado?.sinEvidencia ?: 0}" valueMessagePrefix="boolean.select" onchange="onChangeEvidencia();"/>
+                      value="${hecho?.resultado?.sinEvidencia ?: 0}" valueMessagePrefix="boolean.select"
+                      onchange="onChangeEvidencia();"/>
         </div>
     </div>
 
@@ -243,7 +278,7 @@ $(window).load(function(){onChangeEvidencia();});
         </div>
     </div>
 
-    <div class="col-lg-4" >
+    <div class="col-lg-4">
 
         <label class="control-label">Preservado</label>
 
@@ -254,6 +289,7 @@ $(window).load(function(){onChangeEvidencia();});
     </div>
 
 </div>
+
 
 <div class="row">
     <div class="col-lg-12 evidencia">

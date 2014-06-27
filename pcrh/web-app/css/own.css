@@ -28,3 +28,7 @@ b.caret{
 div.btn-group{
     width: 100%;
 }
+
+h1.title{
+    font-size: 40px !important;
+}

@@ -1,5 +1,6 @@
 package com.pcrh
 
+import com.pcrh.enums.EnumSiNo
 import org.grails.databinding.BindingFormat
 
 /**
@@ -38,6 +39,8 @@ class Hecho implements Serializable{
     Especialidad especialidad
     Documento lef
     ResultadoHecho resultado
+    Boolean consignaPolicial
+    String movilConsigna
 
 	static	hasMany		= [hechosRelacionados: Hecho]	// tells GORM to associate other domain objects for a 1-n or n-m mapping
     static mappedBy = [hechosRelacionados:"hechosRelacionados" ]
