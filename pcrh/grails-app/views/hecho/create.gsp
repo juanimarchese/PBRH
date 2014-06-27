@@ -22,6 +22,24 @@
     <script type="text/javascript">
         $( window ).load(function (){
                 $.validator.addMethod(
+                        "caracter",
+                        function(value, element, regexp) {
+                            var re = new RegExp(regexp);
+                            return this.optional(element) || re.test(value);
+                        },
+                        "Ingrese una letra mayuscula"
+                );
+
+            $.validator.addMethod(
+                    "numero",
+                    function(value, element, regexp) {
+                        var re = new RegExp(regexp);
+                        return this.optional(element) || re.test(value);
+                    },
+                    "Ingrese un número"
+            );
+
+                $.validator.addMethod(
                         "hora",
                         function(value, element, regexp) {
                             var re = new RegExp(regexp);
@@ -55,7 +73,20 @@
                     });
                 });
 
-                $(".datepicker").each(function (item) {
+                $(".caracter").each(function (item) {
+                    $(this).rules("add", {
+                        caracter: "^[A-Z]$"
+                    });
+                });
+
+                $(".numero").each(function (item) {
+                    $(this).rules("add", {
+                        numero: "^[A-Z]$"
+                    });
+                });
+
+
+            $(".datepicker").each(function (item) {
                     $(this).attr('readonly','readonly');
                     $(this).addClass("readOnlyDP");
                 });

@@ -32,6 +32,7 @@
         sectorInput.attr('id',htmlId + 'sector')
                 .attr('name',htmlId + 'sector');
 
+
         var numeroInput = clone.find("input[id$=numero]");
         numeroInput.attr('id',htmlId + 'numero')
                 .attr('name',htmlId + 'numero');
@@ -52,6 +53,10 @@
         clone.attr('id', 'evidencia'+childCount);
 
         $("#childList").append(clone);
+
+        sectorInput.rules("add", { required:true,caracter: "^[A-Z]$"  });
+        numeroInput.rules("add", {required:true,numero: "^[0-9]+$"});
+        cantInput.rules("add", {required:true,numero: "^[0-9]+$"});
 
         clone.show();
         sectorInput.focus();
