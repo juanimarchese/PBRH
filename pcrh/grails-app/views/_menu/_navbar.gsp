@@ -1,5 +1,12 @@
 <nav id="Navbar" class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-	<div class="container">
+
+    <div style="background-image:url('${resource(dir: "images", file: "background.jpg")}');height: 100px">
+        <div align="center">
+            <g:img dir="images" file="logoseguridad.png"  height="100px"/>
+        </div>
+    </div>
+
+    <div class="container">
 	
 	    <div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">

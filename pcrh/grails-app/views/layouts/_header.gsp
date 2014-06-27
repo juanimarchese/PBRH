@@ -1,4 +1,4 @@
-<header id="Header" class="jumbotron masthead" style="padding: 5px">
+<header id="Header" class="jumbotron masthead" style="padding: 5px;margin-top: 100px">
     <div class="container">
         <div class="col-lg-2" >
             <div style="padding-left: -10px">
@@ -8,11 +8,7 @@
         <div class="col-lg-8">
             <h1 class="title"><g:layoutTitle default="Registro de Hechos"/></h1>
         </div>
-        <div class="col-lg-2" >
-            <div style="padding-left: 10px;padding-top: 25px">
-            <g:img dir="images" file="seguridad.png" width="260" height="60"/>
-            </div>
-        </div>
+        
 
     </div>
 </header>
