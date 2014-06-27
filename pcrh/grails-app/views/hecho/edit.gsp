@@ -19,8 +19,13 @@
 	</g:hasErrors>
 
     <g:render template="commonjs"/>
+    <script type="application/javascript">
+       $(window).load(function(){
+           $("#idHecho").attr("readonly","readonly");
+       })
+
+    </script>
 	<g:form name="form" action="update" class="form-horizontal"  enctype="multipart/form-data">
-		<g:hiddenField name="idHecho" value="${hecho?.idHecho}" />
 		<g:hiddenField name="version" value="${hecho?.version}" />
 		<fieldset class="form">
 			<g:render template="form"/>

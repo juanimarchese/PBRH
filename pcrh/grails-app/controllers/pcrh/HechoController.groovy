@@ -38,13 +38,7 @@ class HechoController {
         hecho.clearErrors()
         hecho.validate()
 
-        // find the phones that are marked for deletion
-        def _toBeDeleted = hecho.resultado.evidencias.findAll {(it?.deleted || (it == null))}
-
-        // if there are phones to be deleted remove them all
-        if (_toBeDeleted) {
-            hecho.resultado.evidencias.removeAll(_toBeDeleted)
-        }
+        updateEvidencias(hecho)
 
         if (!hecho.hasErrors()  && hecho.save(flush: true)) {
             flash.message = message(code: 'default.created.message', args: ["Hecho", hecho.idHecho])
@@ -73,34 +67,57 @@ class HechoController {
           [hecho: hecho]
       }
 
-    /*
+
       def update() {
-          def _DemoPageInstance = session.demopage
-          if (!_DemoPageInstance) {
-              flash.message = message(code: 'default.not.found.message', args: [message(code: '_DemoPage.label', default: '_DemoPage'), params.id])
+          def idHecho = params.idHecho
+          def hecho = Hecho.get(idHecho)
+          if (!hecho) {
+              flash.message = message(code: 'default.not.found.message', args: ["Hecho", params.id])
               redirect(action: "list")
               return
           }
 
           if (params.version) {
               def version = params.version.toLong()
-              if (_DemoPageInstance.version > version) {
-                  _DemoPageInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: '_DemoPage.label', default: '_DemoPage')] as Object[],
-                          "Another user has updated this _DemoPage while you were editing")
-                  render(view: "edit", model: [_DemoPageInstance: _DemoPageInstance])
+              if (hecho.version > version) {
+                  hecho.errors.rejectValue("version", "default.optimistic.locking.failure",
+                          ["Hecho"] as Object[],
+                          "Otro usuario estaba editando este hecho mientras usted lo hacia")
+                  render(view: "edit", model: [hecho: hecho])
                   return
               }
           }
 
-          _DemoPageInstance.properties = params
+          clearMultiSelectOptions(hecho)
 
-          session.demopage = _DemoPageInstance
+          hecho.properties = params
 
-          flash.message = message(code: 'default.updated.message', args: [message(code: '_DemoPage.label', default: '_DemoPage'), _DemoPageInstance.id])
-          redirect(action: "show", id: _DemoPageInstance.id)
+          updateEvidencias(hecho)
+
+          if (!hecho.hasErrors()  && hecho.save(flush: true)) {
+              flash.message = message(code: 'default.updated.message', args: ["Hecho", hecho.idHecho])
+              redirect(action: "index")
+          } else {
+              flash.message = "Error al editar el hecho"
+              redirect(action: "edit", params: params)
+          }
+
       }
 
+    private void clearMultiSelectOptions(Hecho hecho) {
+        hecho.especialidad.especialidades.clear();
+        hecho.peritos.peritos.clear();
+    }
+
+    private void updateEvidencias(Hecho hecho) {
+        def _toBeDeleted = hecho.resultado.evidencias.findAll { (it?.deleted || (it == null)) }
+
+        // if there are phones to be deleted remove them all
+        if (_toBeDeleted) {
+            hecho.resultado.evidencias.removeAll(_toBeDeleted)
+        }
+    }
+    /*
       def delete() {
           session.demopage = null
           flash.message = message(code: 'default.deleted.message', args: [message(code: '_DemoPage.label', default: '_DemoPage'), params.id])
