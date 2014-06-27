@@ -10,6 +10,9 @@ button.multiselect.dropdown-toggle.btn.btn-default{
     cursor: default !important;
     padding-right: 6px;
 }
+button.multiselect.dropdown-toggle.btn.btn-default.customDisable{
+    background-color: #eee;
+}
 
 
 b.caret{

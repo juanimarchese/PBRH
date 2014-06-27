@@ -39,6 +39,7 @@
     $( window ).load(function() {
 
         $(".multiselect").removeClass("disabled");
+        $(".multiselect").addClass("customDisable");
         $(".multiselect").removeAttr("disabled");
         $(".multiselect-container input").each(function(){$(this).attr("disabled","disabled")})
     })
