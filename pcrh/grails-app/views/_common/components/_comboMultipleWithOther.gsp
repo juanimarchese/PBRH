@@ -1,5 +1,6 @@
 <script type="text/javascript">
     $( window ).load(function () {
+        var isOther = false;
         var createHiddens = function(){
             $('#'+'${id}'+'_div_hidden').html("");
             var values = $('#'+'${id}'+'_sel').val();
@@ -10,18 +11,25 @@
             }
         }
 
+        function showOther() {
+            $('#' + '${id}' + '_div_other').show();//else it is shown
+            $('#' + '${id}' + '_txt').addClass("required");
+            $('#' + '${id}' + '_div_ppal').removeClass("col-lg-12");
+            $('#' + '${id}' + '_div_ppal').addClass("col-lg-5");
+        }
+
+        function hideOther() {
+            $('#' + '${id}' + '_txt').removeClass("required");
+            $('#' + '${id}' + '_div_other').hide(); //this field is hidden
+            $('#' + '${id}' + '_div_ppal').removeClass("col-lg-5");
+            $('#' + '${id}' + '_div_ppal').addClass("col-lg-12");
+        }
+
         var onChange = function (element, checked) {
             if (element.val() == "OTRO" && checked) {
-                $('#' + '${id}' + '_div_other').show();//else it is shown
-                $('#' + '${id}' + '_txt').addClass("required");
-                $('#' + '${id}' + '_div_ppal').removeClass("col-lg-12");
-                $('#' + '${id}' + '_div_ppal').addClass("col-lg-5");
-
+                showOther();
             } else if (element.val() == "OTRO" && !checked) {
-                $('#' + '${id}' + '_txt').removeClass("required");
-                $('#' + '${id}' + '_div_other').hide(); //this field is hidden
-                $('#' + '${id}' + '_div_ppal').removeClass("col-lg-5");
-                $('#' + '${id}' + '_div_ppal').addClass("col-lg-12");
+                hideOther();
             }
             createHiddens();
         };
@@ -34,6 +42,7 @@
             for (var i = 0; i < elements.length; i++) {
                 if (elements[i] != undefined && elements[i] != "") {
                     $('#' + '${id}' + '_sel').multiselect('select', elements[i]);
+                    if(elements[i] == "OTRO") isOther = true;
                 }
             }
         }
@@ -55,10 +64,12 @@
         $('#'+'${id}'+'_sel').multiselect(optionOne);
 
         setValues();
-        $('#'+'${id}'+'_txt').removeClass("required");
-        $('#'+'${id}'+'_div_other').hide(); //hide field on start
-        $('#'+'${id}'+'_div_ppal').removeClass("col-lg-5");
-        $('#'+'${id}'+'_div_ppal').addClass("col-lg-12");
+
+        if (isOther) {
+            showOther();
+        } else {
+            hideOther();
+        }
         createHiddens();
 
     });

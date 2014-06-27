@@ -1,27 +1,32 @@
 <script type="text/javascript">
     $( window ).load(function () {
-        $('#'+'${id}'+'_txt').removeClass("required");
-        $('#'+'${id}'+'_div_other').hide(); //hide field on start
-        $('#'+'${id}'+'_div_ppal').removeClass("col-lg-5");
-        $('#'+'${id}'+'_div_ppal').addClass("col-lg-12");
+        function showOther() {
+            $('#' + '${id}' + '_div_other').show();//else it is shown
+            $('#' + '${id}' + '_txt').addClass("required");
+            $('#' + '${id}' + '_div_ppal').removeClass("col-lg-12");
+            $('#' + '${id}' + '_div_ppal').addClass("col-lg-5");
+        }
+        function hideOther() {
+            $('#' + '${id}' + '_txt').removeClass("required");
+            $('#' + '${id}' + '_div_other').hide(); //hide field on start
+            $('#' + '${id}' + '_div_ppal').removeClass("col-lg-5");
+            $('#' + '${id}' + '_div_ppal').addClass("col-lg-12");
+        }
 
-        $('#'+'${id}'+'_sel').change(function () {
-
-            var $index = $('#'+'${id}'+'_sel').index(this);
-
-            if ($('#'+'${id}'+'_sel').val() != 'OTRO') { //if this value is NOT selected
-                $('#'+'${id}'+'_txt').removeClass("required");
-                $('#'+'${id}'+'_div_other').hide(); //this field is hidden
-                $('#'+'${id}'+'_div_ppal').removeClass("col-lg-5");
-                $('#'+'${id}'+'_div_ppal').addClass("col-lg-12");
+        function checkOther() {
+            if ($('#' + '${id}' + '_sel').val() != 'OTRO') { //if this value is NOT selected
+                hideOther()
             }
             else {
-                $('#'+'${id}'+'_div_other').show();//else it is shown
-                $('#'+'${id}'+'_txt').addClass("required");
-                $('#'+'${id}'+'_div_ppal').removeClass("col-lg-12");
-                $('#'+'${id}'+'_div_ppal').addClass("col-lg-5");
+                showOther();
             }
+        }
+
+        $('#'+'${id}'+'_sel').change(function () {
+             checkOther();
         });
+
+        checkOther();
     });
 </script>
 
