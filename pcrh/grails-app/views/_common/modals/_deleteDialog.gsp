@@ -14,13 +14,22 @@ This is the standard dialog that initiates the delete action.
 				<p><g:message code="default.button.delete.confirm.message" args="[entityName]" default="Do you really want to delete this item?"/></p>
 			</div>
 			<div class="modal-footer">
-				<g:form>
+                %{--<g:form>
 					<button class="btn" data-dismiss="modal" aria-hidden="true"><g:message code="default.button.cancel.label" default="Cancel"/></button>
 					<g:hiddenField name="id" value="${itemId ? itemId : params.id}" />
                     <g:hiddenField name="anio" value="${itemAnio ? itemAnio : ''}" />
 					<g:hiddenField name="_method" value="DELETE" />
 					<span class="button"><g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}"/></span>
-				</g:form>
+				</g:form>--}%
+                <g:form name="deleteForm" action="delete" class="form-horizontal"  enctype="multipart/form-data">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true"><g:message code="default.button.cancel.label" default="Cancel"/></button>
+                    <g:hiddenField name="id" value="${itemId ? itemId : params.id}" />
+                    <g:hiddenField name="anio" value="${itemAnio ? itemAnio : ''}" />
+                    <g:hiddenField name="_method" value="DELETE" />
+                    <span class="button">
+                        <g:submitButton name="delete" class="btn btn-danger" value="${message(code: 'default.button.delete.label', default: 'Delete')}"/>
+                    </span>
+                </g:form>
 			</div>
 		</div>
 	</div>

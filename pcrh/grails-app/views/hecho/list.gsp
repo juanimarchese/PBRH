@@ -65,6 +65,15 @@
 
             </tr>
         </g:each>
+        <g:if test="${hechoList.size() == 0}">
+            <tr class="odd" style="text-align: center">
+
+                <td colspan="7">
+                    -- No hay hechos para mostrar --
+                </td>
+
+            </tr>
+        </g:if>
         </tbody>
     </table>
     <div class="container" align="center">

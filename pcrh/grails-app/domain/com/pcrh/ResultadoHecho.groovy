@@ -23,6 +23,9 @@ class ResultadoHecho {
     List evidencias
 
     static hasMany = [evidencias: Evidencia]
+    static mapping = {
+        evidencias cascade: 'all-delete-orphan'
+    }
 
     /* List<Evidencia> evidencias = LazyList.decorate(new ArrayList(), FactoryUtils.instantiateFactory(Evidencia.class));*/
 	static	belongsTo	= [hecho: Hecho]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.

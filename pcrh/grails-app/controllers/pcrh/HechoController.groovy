@@ -117,10 +117,19 @@ class HechoController {
             hecho.resultado.evidencias.removeAll(_toBeDeleted)
         }
     }
-    /*
+
       def delete() {
-          session.demopage = null
-          flash.message = message(code: 'default.deleted.message', args: [message(code: '_DemoPage.label', default: '_DemoPage'), params.id])
+          def idHecho = params.id + "/" + params.anio
+          def hecho = Hecho.get(idHecho)
+
+          try {
+              hecho.delete(flush: true)
+              flash.message = message(code: 'default.deleted.message', args: ["Hecho", idHecho])
+          }
+          catch (org.springframework.dao.DataIntegrityViolationException e) {
+              flash.message = "No se pudo borrar el Hecho " + idHecho
+          }
           redirect(action: "list")
-      }*/
+
+      }
 }
