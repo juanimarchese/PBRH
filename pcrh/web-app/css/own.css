@@ -5,4 +5,23 @@
 
 button.multiselect.dropdown-toggle.btn.btn-default{
     min-width: 110px;
+    width: 100% !important;
+    text-align: left !important;
+    cursor: default !important;
+    padding-right: 6px;
+}
+
+
+b.caret{
+    margin-top: 7px;
+    float: right;
+    border-top: 6px solid;
+    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
+}
+
+
+
+div.btn-group{
+    width: 100%;
 }
