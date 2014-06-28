@@ -33,7 +33,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/pcrh?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "root"
+            password = "Poli46649994"
         }
     }
 }
