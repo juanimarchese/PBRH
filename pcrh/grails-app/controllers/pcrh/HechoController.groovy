@@ -63,6 +63,7 @@ class HechoController {
               redirect(action: "list")
               return
           }
+          Hecho hecho = Hecho.get(params.id + '/' + params.anio)
           [hecho: hecho]
       }
 

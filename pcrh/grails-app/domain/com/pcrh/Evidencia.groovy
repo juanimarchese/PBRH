@@ -32,4 +32,10 @@ class Evidencia {
         resultado unique: ['sector','numero']
     }
 
+
+    @Override
+    public String toString() {
+        String s = sector + numero + " - " +numero+" "+tipo.valor
+        return  !observaciones.empty ? (s + " - " + observaciones) : s;
+    }
 }

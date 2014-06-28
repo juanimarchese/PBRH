@@ -17,10 +17,14 @@ class Salida {
 	Date fechaSalida
     Documento archivoConstancia
     String destino
+    String observaciones
+    Hecho hecho
     Evidencia evidencia
 
-    Hecho getHecho() {
-        return evidencia.getResultado().getHecho()
+    static mapping = {
+        archivoConstancia cascade: 'all'
     }
+
+
 
 }

@@ -32,7 +32,7 @@ environments {
         dataSource {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/pcrh?useUnicode=yes&characterEncoding=UTF-8"
-            username = "root"
+            username = "pcrh"
             password = "Poli46649994"
         }
     }

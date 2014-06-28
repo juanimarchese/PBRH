@@ -62,6 +62,11 @@ class Hecho implements Serializable{
         def find = idHecho.split('/')
         return find[1]
     }
+
+    static List getHechosConEvidencia() {
+        def list = findAll("from Hecho h where exists (from Evidencia e where e.resultado.hecho = h)")
+        return list
+    }
 /*
 	 * Methods of the Domain Class
 	 */

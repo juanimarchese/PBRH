@@ -32,12 +32,12 @@
 
                 <sec:ifAnyGranted roles="ROLE_JEFE,ROLE_ADMIN">
                     <li class="controller">
-                        <g:link controller="main" action="index">
+                        <g:link controller="salida" action="create">
                             <i class="glyphicon glyphicon-plus-sign"></i> Nueva Salida
                         </g:link>
                     </li>
                     <li class="controller">
-                        <g:link controller="main" action="index">
+                        <g:link controller="salida" action="index">
                             <i class="glyphicon glyphicon-search"></i> Consultar Salidas
                         </g:link>
                     </li>
