@@ -64,7 +64,7 @@ class Hecho implements Serializable{
     }
 
     static List getHechosConEvidencia() {
-        def list = findAll("from Hecho h where exists (from Evidencia e where e.resultado.hecho = h)")
+        def list = findAll("from Hecho h where exists (from Evidencia e where e.resultado.hecho = h and not exists (from Salida s where s.evidencia = e))")
         return list
     }
 /*

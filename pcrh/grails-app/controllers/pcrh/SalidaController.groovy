@@ -28,7 +28,7 @@ class SalidaController {
     def create() {
         def evidencia = Hecho.getHechosConEvidencia()
         if (evidencia == null || evidencia.size() == 0){
-            flash.message = "Error - No hay hechos con evidencia"
+            flash.message = "No hay hechos con evidencia sin salida"
             redirect(action: "list")
             return
         }
@@ -71,57 +71,55 @@ class SalidaController {
            Salida salida = Salida.get(params.id)
             [salida: salida]
         }
-    /*
+
        def edit() {
-           def idHecho = params.id + "/" + params.anio
-           if(!Hecho.exists(idHecho)){
-               flash.message = "Error - El hecho no existe"
+           def idSalida = params.id
+           if(!Salida.exists(idSalida)){
+               flash.message = "Error - La salida no existe"
                redirect(action: "list")
                return;
            }
-           def hecho = Hecho.get(idHecho)
-           hecho?.clearErrors()
-           hecho?.validate()
-           [hecho: hecho]
+           def salida = Salida.get(idSalida)
+           salida?.clearErrors()
+           salida?.validate()
+           [salida: salida]
        }
 
 
        def update() {
-           def idHecho = params.idHecho
-           def hecho = Hecho.get(idHecho)
-           if (!hecho) {
-               flash.message = message(code: 'default.not.found.message', args: ["Hecho", params.id])
+           def idSalida = params.id
+           def salida = Salida.get(idSalida)
+           if (!salida) {
+               flash.message = message(code: 'default.not.found.message', args: ["Salida", params.id])
                redirect(action: "list")
                return
            }
 
            if (params.version) {
                def version = params.version.toLong()
-               if (hecho.version > version) {
-                   hecho.errors.rejectValue("version", "default.optimistic.locking.failure",
-                           ["Hecho"] as Object[],
-                           "Otro usuario estaba editando este hecho mientras usted lo hacia")
-                   render(view: "edit", model: [hecho: hecho])
+               if (salida.version > version) {
+                   salida.errors.rejectValue("version", "default.optimistic.locking.failure",
+                           ["Salida"] as Object[],
+                           "Otro usuario estaba editando esta salida mientras usted lo hacia")
+                   render(view: "edit", model: [salida: salida])
                    return
                }
            }
 
-           clearMultiSelectOptions(hecho)
 
-           hecho.properties = params
+           salida.properties = params
 
-           updateEvidencias(hecho)
 
-           if (!hecho.hasErrors()  && hecho.save(flush: true)) {
-               flash.message = message(code: 'default.updated.message', args: ["Hecho", hecho.idHecho])
+           if (!salida.hasErrors()  && salida.save(flush: true)) {
+               flash.message = message(code: 'default.updated.message', args: ["Salida", salida.id])
                redirect(action: "index")
            } else {
-               flash.message = "Error al editar el hecho"
+               flash.message = "Error al editar la salida"
                redirect(action: "edit", params: params)
            }
 
        }
-
+        /*
        def delete() {
            def idHecho = params.id + "/" + params.anio
            def hecho = Hecho.get(idHecho)
