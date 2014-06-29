@@ -24,7 +24,7 @@
 
             <g:sortableColumn property="idHecho" title="Numero" />
 
-            <g:sortableColumn property="fechaHecho" title="Fecha" />
+            <g:sortableColumn property="fechaHecho" title="Fecha" width="30px"/>
             <g:sortableColumn property="caratula" title="Caratula" />
 
             <g:sortableColumn property="comisariaInterviniente" title="Comisaria" />
@@ -35,7 +35,7 @@
 
             <th style="color: #428bca">PU</th>
             <th style="color: #428bca">LEF</th>
-            <th style="color: #428bca">Acciones</th>
+            <th style="color: #428bca" width="210px">Acciones</th>
 
         </tr>
         </thead>

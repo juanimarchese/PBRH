@@ -26,13 +26,13 @@
             <g:sortableColumn property="hecho.idHecho" title="Hecho"/>
 
             <g:sortableColumn property="evidencia" title="Evidencia"/>
-            <g:sortableColumn property="fechaSalida" title="Fecha"/>
+            <g:sortableColumn property="fechaSalida" title="Fecha" width="35px"/>
 
             <g:sortableColumn property="destino" title="Destino"/>
 
 
-            <th style="color: #428bca">Constancia</th>
-            <th style="color: #428bca">Acciones</th>
+            <th style="color: #428bca" width="30px">Constancia</th>
+            <th style="color: #428bca" width="200px">Acciones</th>
 
         </tr>
         </thead>
@@ -50,23 +50,23 @@
 
 
                 <td>
-                    %{-- <div align="center">
-                     <g:if test="${hechoVar?.pu != null}">
-                         <g:link action="download" id="${hechoVar?.pu?.id}" title="Descargar PU" role="button" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-download"></i></g:link>
+                     <div align="center">
+                     <g:if test="${salidaVar?.archivoConstancia != null}">
+                         <g:link action="download" id="${salidaVar?.archivoConstancia?.id}" title="Descargar Constancia Salida" role="button" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-download"></i></g:link>
                      </g:if><g:else>
                          -
                      </g:else>
-                 </div>--}%
+                 </div>
                 </td>
 
                 <td>
                     <div align="center">
-                        %{--<span class="">
-                            <g:link action="uploadPU" params="[id: hechoVar.idHechoNumero, anio: hechoVar.idHechoAnio]"
-                                    role="button" class="btn btn-primary btn-sm" title="Subir PU">
-                                <i class="glyphicon glyphicon-upload"></i> PU
+                        <span class="">
+                            <g:link action="uploadConstancia" params="[id: salidaVar.id]"
+                                    role="button" class="btn btn-primary btn-sm" title="Subir Constancia Salida">
+                                <i class="glyphicon glyphicon-upload"></i> Constancia
                             </g:link>
-                        </span>--}%
+                        </span>
                         <span class="">
                             <g:link action="edit" params="[id: salidaVar.id]"
                                     role="button" class="btn btn-success btn-sm" title="Editar">

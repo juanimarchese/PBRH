@@ -135,7 +135,7 @@ class SalidaController {
 
        }
 
-        /*
+
        private Documento createDocumento(file) {
            def documentInstance = new Documento()
            documentInstance.filename = file.originalFilename
@@ -145,16 +145,16 @@ class SalidaController {
        }
 
        def uploadConstancia(){
-           def idHecho = params.id + "/" + params.anio
-           if(!Hecho.exists(idHecho)){
-               flash.message = "Error - El hecho no existe"
+           def idSalida = params.id
+           if(!Salida.exists(idSalida)){
+               flash.message = "Error - La salida no existe"
                redirect(action: "list")
                return;
            }
-           def hecho = Hecho.get(idHecho)
-           hecho?.clearErrors()
-           hecho?.validate()
-           [hecho: hecho]
+           def salida = Salida.get(idSalida)
+           salida?.clearErrors()
+           salida?.validate()
+           [salida: salida]
 
        }
 
@@ -163,15 +163,31 @@ class SalidaController {
            if(file.empty) {
                flash.message = "El archivo no puede estar vacio"
            } else {
-               def idHecho = params.idHecho
-               def hecho = Hecho.get(idHecho)
-               if(hecho.getPu() != null){
-                   hecho.getPu().delete(flush: true);
+               def idSalida = params.id
+               def salida = Salida.get(idSalida)
+               if(salida.getArchivoConstancia() != null){
+                   salida.getArchivoConstancia().delete(flush: true);
                }
                Documento documentInstance = createDocumento(file)
-               hecho.setPu(documentInstance);
-               hecho.save(flush: true);
+               salida.setArchivoConstancia(documentInstance);
+               salida.save(flush: true);
            }
            redirect (action:'list')
-       }*/
+       }
+
+    def download(long id) {
+        Documento documentInstance = Documento.get(id)
+        if ( documentInstance == null) {
+            flash.message = "Documento no encontrado"
+            redirect (action:'list')
+        } else {
+            response.setContentType("APPLICATION/OCTET-STREAM")
+            response.setHeader("Content-Disposition", "Attachment;Filename=\"${documentInstance.filename}\"")
+
+            def outputStream = response.getOutputStream()
+            outputStream << documentInstance.filedata
+            outputStream.flush()
+            outputStream.close()
+        }
+    }
 }
