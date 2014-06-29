@@ -29,7 +29,7 @@
 <hr style="border-top: 2px solid #eeeeee;margin-top: 1px">
 
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Numero</label>
 
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Fecha Hecho</label>
 
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Fecha Pericia</label>
 
@@ -66,7 +66,7 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Hora Solicitud</label>
 
@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Hora Arribo</label>
 
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Hora Final</label>
 
@@ -98,21 +98,21 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <g:render template="/_common/components/comboWithOther"
                   model="[id  : 'comisaria', label: 'Comisaria', name: 'comisariaInterviniente.comisaria', nameOther: 'comisariaInterviniente.otherDescription',
                           from: com.pcrh.enums.EnumComisaria.values()*.getNombre(), keys: com.pcrh.enums.EnumComisaria.values()*.name(), value: hecho?.comisariaInterviniente?.comisaria?.name(), otherValue: hecho?.comisariaInterviniente?.otherDescription
                   ]"/>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <g:render template="/_common/components/comboWithOther"
                   model="[id  : 'caratula', label: 'Caratula', name: 'caratula.caratula', nameOther: 'caratula.otherDescription',
                           from: com.pcrh.enums.EnumCaratula.values()*.getValor(), keys: com.pcrh.enums.EnumCaratula.values()*.name(), value: hecho?.caratula?.caratula?.name(), otherValue: hecho?.caratula?.otherDescription
                   ]"/>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Movil</label>
 
@@ -124,7 +124,7 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Dirección del Hecho</label>
 
@@ -134,7 +134,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Localidad del Hecho</label>
 
@@ -144,7 +144,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
 
         <label class="control-label">Zona</label>
 
@@ -158,7 +158,7 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Magistrado Interviniente</label>
 
@@ -169,7 +169,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Victima</label>
 
@@ -179,7 +179,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Imputado</label>
 
@@ -192,14 +192,14 @@
 
 <div class="row">
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <g:render template="/_common/components/comboMultipleWithOther"
                   model="[id  : 'especialidad', label: 'Especialidad', labelSeleccion: 'especialidades', name: 'especialidad.especialidades', nameOther: 'especialidad.otherDescription',
                           from: com.pcrh.enums.EnumEspecialidad.values()*.getValor(), keys: com.pcrh.enums.EnumEspecialidad.values()*.name(), value: hecho?.especialidad?.especialidades?.toString(), otherValue: hecho?.especialidad?.otherDescription
                   ]"/>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         %{--Comobo de peritos--}%
         <g:render template="/_common/components/comboMultipleObjectWithOther"
                   model="[id  : 'peritos', label: 'Peritos', labelSeleccion: 'peritos', name: 'peritos.peritos', nameOther: 'peritos.otros',
@@ -207,7 +207,7 @@
                   ]"/>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <g:render template="/_common/components/comboWithOther"
                   model="[id  : 'fr', label: 'Forma Recepción', name: 'formaRecepcion.formaRecepcion', nameOther: 'formaRecepcion.otherDescription',
                           from: com.pcrh.enums.EnumFormaRecepcion.values()*.getValor(), keys: com.pcrh.enums.EnumFormaRecepcion.values()*.name(), value: hecho?.formaRecepcion?.formaRecepcion?.name(), otherValue: hecho?.formaRecepcion?.otherDescription
@@ -217,7 +217,7 @@
 
 <div class="row">
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
 
         <label class="control-label">Consigna Policial</label>
 
@@ -228,7 +228,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4 consigna">
+    <div class="col-sm-4 consigna">
 
         <label class="control-label">Movil Consigna</label>
 
@@ -241,7 +241,7 @@
 
 <div class="row">
 
-    <div class="col-lg-12">
+    <div class="col-sm-12">
         <div>
             <label class="control-label">Observaciones</label>
 
@@ -257,7 +257,7 @@
 
 <div class="row">
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
 
         <label class="control-label">Evidencia</label>
 
@@ -268,7 +268,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
 
         <label class="control-label">Moradores</label>
 
@@ -278,7 +278,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
 
         <label class="control-label">Preservado</label>
 
@@ -292,7 +292,7 @@
 
 
 <div class="row">
-    <div class="col-lg-12 evidencia">
+    <div class="col-sm-12 evidencia">
 
         <g:render template="evidencias" model="['resultadoInstance': hecho?.resultado]"/>
 

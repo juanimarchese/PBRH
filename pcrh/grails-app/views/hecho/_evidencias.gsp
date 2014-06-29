@@ -99,7 +99,7 @@
 </script>
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-sm-12">
         <h3>Carga de Evidencias
             <a class="btn btn-success btn-sm" onclick="addEvidencia();return false;" title="Agregar Evidencia">
                 <i class="glyphicon glyphicon-plus-sign"></i>
@@ -112,27 +112,27 @@
 
 <div id="childList" style="padding-bottom: 10px">
     <div id="noneChildList" class="row" style="margin-top: -15px">
-        <div class="col-lg-12" style="text-align: center;">
+        <div class="col-sm-12" style="text-align: center;">
             <h5>-- No hay ninguna evidencia para mostrar --</h5>
         </div>
     </div>
     <div id="headerChildList" class="row" >
-        <div class="col-lg-1">
+        <div class="col-sm-1">
             <label class="control-label">Sector</label>
         </div>
-        <div class="col-lg-1">
+        <div class="col-sm-1">
             <label class="control-label">Numero</label>
         </div>
-        <div class="col-lg-2">
+        <div class="col-sm-2">
             <label class="control-label">Tipo</label>
         </div>
-        <div class="col-lg-1">
+        <div class="col-sm-1">
             <label class="control-label">Cantidad</label>
         </div>
-        <div class="col-lg-6">
+        <div class="col-sm-6">
             <label class="control-label">Observaciones</label>
         </div>
-        <div class="col-lg-1 pull-right acciones">
+        <div class="col-sm-1 pull-right acciones">
             <label class="control-label">Acciones</label>
         </div>
 

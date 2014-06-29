@@ -41,7 +41,7 @@
 
 <div class="row">
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Fecha Hecho</label>
 
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-sm-4">
         <div>
             <label class="control-label">Hecho</label>
 
@@ -69,7 +69,7 @@
     </div>
 
 
-    <div class="col-lg-4" id="evidencia">
+    <div class="col-sm-4" id="evidencia">
         <div>
             <label class="control-label">Evidencia</label>
 
@@ -87,7 +87,7 @@
 
 <div class="row">
 
-    <div class="col-lg-12">
+    <div class="col-sm-12">
         <div>
             <label class="control-label">Destino</label>
 
@@ -103,7 +103,7 @@
 
 <div class="row">
 
-    <div class="col-lg-12">
+    <div class="col-sm-12">
         <div>
             <label class="control-label">Observaciones</label>
 
