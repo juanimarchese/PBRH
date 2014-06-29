@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="kickstart"/>
-    <g:set var="entityName" value="Salidas"/>
+    <g:set var="entityName" value="Salida"/>
     <title><g:message code="default.list.label" args="[entityName]"/></title>
     <script>
         $(window).load(function () {
@@ -74,8 +74,8 @@
                             </g:link>
                         </span>
 
-                        %{-- <g:render template="/_common/modals/deleteSymbolLink"
-                                   model="[id: hechoVar.idHechoNumero, anio: hechoVar.idHechoAnio]"/>--}%
+                         <g:render template="/_common/modals/deleteSymbolLink"
+                                   model="[id: salidaVar.id]"/>
                     </div>
                 </td>
 

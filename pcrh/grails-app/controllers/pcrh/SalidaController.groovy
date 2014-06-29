@@ -119,22 +119,23 @@ class SalidaController {
            }
 
        }
-        /*
+
        def delete() {
-           def idHecho = params.id + "/" + params.anio
-           def hecho = Hecho.get(idHecho)
+           def idSalida = params.id
+           def salida = Salida.get(idSalida)
 
            try {
-               hecho.delete(flush: true)
-               flash.message = message(code: 'default.deleted.message', args: ["Hecho", idHecho])
+               salida.delete(flush: true)
+               flash.message = message(code: 'default.deleted.message', args: ["Salida", idSalida])
            }
            catch (org.springframework.dao.DataIntegrityViolationException e) {
-               flash.message = "No se pudo borrar el Hecho " + idHecho
+               flash.message = "No se pudo borrar la Salida " + idSalida
            }
            redirect(action: "list")
 
        }
 
+        /*
        private Documento createDocumento(file) {
            def documentInstance = new Documento()
            documentInstance.filename = file.originalFilename
