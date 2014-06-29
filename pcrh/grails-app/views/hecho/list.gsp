@@ -99,7 +99,7 @@
         <g:if test="${hechoList.size() == 0}">
             <tr class="odd" style="text-align: center">
 
-                <td colspan="8">
+                <td colspan="9">
                     -- No hay hechos para mostrar --
                 </td>
 

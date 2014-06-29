@@ -2,13 +2,13 @@
 
     <div style="background-image:url('${resource(dir: "images", file: "background.jpg")}');height: 75px">
         <div class="row">
-            <div class="col-lg-4 pull-left">
+            <div class="col-sm-4 pull-left">
                 <g:img dir="images" file="escudo.gif"  height="75px"/>
             </div>
-            <div class="col-lg-4">
+            <div class="col-sm-4">
                 <g:img dir="images" file="logoseguridad.png"  height="75px"/>
             </div>
-            <div class="col-lg-4 pull-right" style="text-align: right">
+            <div class="col-sm-4 pull-right" style="text-align: right">
                 <g:img dir="images" file="escudo.gif"  height="75px"/>
             </div>
         </div>
