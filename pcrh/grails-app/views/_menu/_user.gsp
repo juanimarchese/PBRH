@@ -30,7 +30,7 @@
 		</a>
 		<ul class="dropdown-menu" role="menu">
 			<!-- TODO: Only show menu items based on permissions -->
-			<li class=""><a>
+			%{--<li class=""><a>
 				<i class="glyphicon glyphicon-user"></i>
 				Perfil
 			</a></li>
@@ -38,7 +38,7 @@
 				<i class="glyphicon glyphicon-cogs"></i>
 				Configuración
 			</a></li>
-            <li class="divider"></li>
+            <li class="divider"></li>--}%
 			<li class=""><a href="${createLink(uri: '/logout')}">
 				<i class="glyphicon glyphicon-off"></i>
 				Salir
