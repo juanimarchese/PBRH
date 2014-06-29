@@ -22,11 +22,11 @@
     <table class="table table-bordered margin-top-medium">
         <thead>
         <tr>
-
+            <g:sortableColumn property="fechaSalida" title="Fecha" width="35px"/>
             <g:sortableColumn property="hecho.idHecho" title="Hecho"/>
 
             <g:sortableColumn property="evidencia" title="Evidencia"/>
-            <g:sortableColumn property="fechaSalida" title="Fecha" width="35px"/>
+
 
             <g:sortableColumn property="destino" title="Destino"/>
 
@@ -39,12 +39,15 @@
         <tbody>
         <g:each in="${salidaList}" status="i" var="salidaVar">
             <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-
-                <td><g:link action="show"
-                            params="[id: salidaVar.id]">${fieldValue(bean: salidaVar, field: "hecho.idHecho")}</g:link></td>
+                <td>
+                    <g:link action="show" title="Ver Información de Salida"
+                            params="[id: salidaVar.id]"><g:formatDate format="dd/MM/yyyy" date="${salidaVar.fechaSalida}"/></g:link>
+                    </td>
+                <td><g:link title="Ver Información de Hecho" controller="hecho" action="show" params="[id: salidaVar.hecho.idHechoNumero , anio: salidaVar.hecho.idHechoAnio]">${fieldValue(bean: salidaVar, field: "hecho.idHecho")}</g:link>
+                    </td>
 
                 <td>${salidaVar.evidencia.toString()}</td>
-                <td><g:formatDate format="dd/MM/yyyy" date="${salidaVar.fechaSalida}"/></td>
+
 
                 <td>${fieldValue(bean: salidaVar, field: "destino")}</td>
 
