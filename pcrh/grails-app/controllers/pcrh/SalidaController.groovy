@@ -4,11 +4,13 @@ import com.pcrh.Documento
 import com.pcrh.Evidencia
 import com.pcrh.Hecho
 import com.pcrh.Salida
+import grails.plugins.springsecurity.Secured
 
 /**
  * SalidaController
  * A controller class handles incoming web requests and performs actions such as redirects, rendering views and so on.
  */
+@Secured(['ROLE_ADMIN','ROLE_JEFE'])
 class SalidaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
