@@ -4,6 +4,7 @@ import com.pcrh.Documento
 import com.pcrh.Evidencia
 import com.pcrh.Hecho
 import com.pcrh.ResultadoHecho
+import com.pcrh.Salida
 import grails.plugins.springsecurity.Secured
 
 /**
@@ -127,7 +128,15 @@ class HechoController {
 
         // if there are phones to be deleted remove them all
         if (_toBeDeleted) {
+            for(Evidencia e : _toBeDeleted){
+                def salidas = Salida.executeQuery("from Salida s where s.evidencia.id = " + e.id);
+                if (salidas == null) continue;
+                for (Salida s : salidas){
+                    s.delete(flush: true);
+                }
+            }
             hecho.resultado.evidencias.removeAll(_toBeDeleted)
+
         }
     }
 
