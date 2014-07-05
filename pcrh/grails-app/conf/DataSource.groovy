@@ -52,7 +52,7 @@ environments {
                 testWhileIdle = true
                 testOnReturn = false
 
-                validationQuery = "select 1 from dual"
+                validationQuery = "select 1"
             }
         }
     }

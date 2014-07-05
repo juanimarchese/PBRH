@@ -1,24 +1,48 @@
 <%@ page import="com.pcrh.Persona; com.pcrh.Hecho" %>
 <script type="application/javascript">
-    function hideShow(id, classId) {
+    function hideClass(classId) {
+        $(classId).each(function (item) {
+            $(this).hide()
+        });
+    }
+
+    function showClass(classId) {
+        $(classId).each(function (item) {
+            $(this).show()
+        });
+    }
+
+    function hideShow(id, classArray) {
         if ($(id).val() == 0) {
-            $(classId).each(function (item) {
-                $(this).hide()
-            });
+            for(var i=0;i<classArray.length;i++){
+                hideClass(classArray[i]);
+            }
+
         } else {
-            $(classId).each(function (item) {
-                $(this).show()
-            });
+            for(var i=0;i<classArray.length;i++){
+                showClass(classArray[i]);
+            }
+        }
+    }
+
+
+    function onChangeMoradores() {
+        hideShow("#noMoradores",[".moradores"] );
+        if ($("#noMoradores").val() == 0) {
+            hideClass(".evidencia");
+        } else {
+            onChangeEvidencia();
         }
     }
 
     function onChangeEvidencia() {
-        hideShow("#sinEvidencia", ".evidencia")
+        hideShow("#sinEvidencia", [".evidencia"])
     }
     function onChangeConsigna() {
-        hideShow("#consignaPolicial", ".consigna")
+        hideShow("#consignaPolicial", [".consigna"])
     }
     $(window).load(function () {
+        onChangeMoradores();
         onChangeEvidencia();
         onChangeConsigna();
     });
@@ -259,27 +283,6 @@
 
     <div class="col-sm-4">
 
-        <label class="control-label">Evidencia</label>
-
-        <div>
-            <g:select class="form-control required" id="sinEvidencia" name="resultado.sinEvidencia" from="${[1, 0]}"
-                      value="${hecho?.resultado?.sinEvidencia ?: 0}" valueMessagePrefix="boolean.select"
-                      onchange="onChangeEvidencia();"/>
-        </div>
-    </div>
-
-    <div class="col-sm-4">
-
-        <label class="control-label">Moradores</label>
-
-        <div>
-            <g:select class="form-control required" id="noMoradores" name="resultado.noMoradores" from="${[1, 0]}"
-                      value="${hecho?.resultado?.noMoradores ?: 0}" valueMessagePrefix="boolean.select"/>
-        </div>
-    </div>
-
-    <div class="col-sm-4">
-
         <label class="control-label">Preservado</label>
 
         <div>
@@ -287,6 +290,29 @@
                       value="${hecho?.resultado?.noPreservado ?: 0}" valueMessagePrefix="boolean.select"/>
         </div>
     </div>
+
+    <div class="col-sm-4">
+        <label class="control-label">Moradores</label>
+
+        <div>
+            <g:select class="form-control required" id="noMoradores" name="resultado.noMoradores" from="${[1, 0]}"
+                      value="${hecho?.resultado?.noMoradores ?: 0}" valueMessagePrefix="boolean.select" onchange="onChangeMoradores();"/>
+        </div>
+
+    </div>
+
+    <div class="col-sm-4 moradores">
+        <label class="control-label">Evidencia</label>
+
+        <div>
+            <g:select class="form-control required" id="sinEvidencia" name="resultado.sinEvidencia" from="${[1, 0]}"
+                      value="${hecho?.resultado?.sinEvidencia ?: 0}" valueMessagePrefix="boolean.select"
+                      onchange="onChangeEvidencia();"/>
+        </div>
+
+    </div>
+
+
 
 </div>
 
