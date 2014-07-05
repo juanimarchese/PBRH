@@ -22,13 +22,17 @@
     <table class="table table-bordered margin-top-medium">
         <thead>
         <tr>
-            <g:sortableColumn property="fechaSalida" title="Fecha" width="35px"/>
-            <g:sortableColumn property="hecho.idHecho" title="Hecho"/>
+
 
             <g:sortableColumn property="evidencia" title="Evidencia"/>
+            <g:sortableColumn property="hecho.idHecho" title="Hecho" />
 
+            <g:sortableColumn property="fechaSalida" title="Fecha Salida" width="110px"/>
 
             <g:sortableColumn property="destino" title="Destino"/>
+
+            <g:sortableColumn property="fechaEntrada" title="Fecha Entrada" width="120px"/>
+
 
 
             <th style="color: #428bca" width="30px">Constancia</th>
@@ -39,18 +43,32 @@
         <tbody>
         <g:each in="${salidaList}" status="i" var="salidaVar">
             <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+
                 <td>
                     <g:link action="show" title="Ver Información de Salida"
-                            params="[id: salidaVar.id]"><g:formatDate format="dd/MM/yyyy" date="${salidaVar.fechaSalida}"/></g:link>
-                    </td>
+                            params="[id: salidaVar.id]"> ${salidaVar.evidencia.toString()}</g:link>
+
+                </td>
+
                 <td><g:link title="Ver Información de Hecho" controller="hecho" action="show" params="[id: salidaVar.hecho.idHechoNumero , anio: salidaVar.hecho.idHechoAnio]">${fieldValue(bean: salidaVar, field: "hecho.idHecho")}</g:link>
                     </td>
 
-                <td>${salidaVar.evidencia.toString()}</td>
 
 
+                <td>
+                    <g:formatDate format="dd/MM/yyyy" date="${salidaVar.fechaSalida}"/>
+                </td>
                 <td>${fieldValue(bean: salidaVar, field: "destino")}</td>
-
+                <td>
+                    <g:if test="${salidaVar.fechaEntrada != null}">
+                        <g:formatDate format="dd/MM/yyyy" date="${salidaVar.fechaEntrada}"/>
+                    </g:if>
+                    <g:else>
+                        <div align="center">
+                            -
+                        </div>
+                    </g:else>
+                </td>
 
                 <td>
                      <div align="center">
@@ -63,6 +81,7 @@
                 </td>
 
                 <td>
+                    <g:if test="${salidaVar?.archivoConstancia == null}">
                     <div align="center">
                         <span class="">
                             <g:link action="uploadConstancia" params="[id: salidaVar.id]"
@@ -80,6 +99,12 @@
                          <g:render template="/_common/modals/deleteSymbolLink"
                                    model="[id: salidaVar.id]"/>
                     </div>
+                    </g:if>
+                    <g:else>
+                        <div align="center">
+                            -
+                        </div>
+                    </g:else>
                 </td>
 
             </tr>

@@ -15,6 +15,7 @@ class Salida {
 	Date	lastUpdated
 
 	Date fechaSalida
+    Date fechaEntrada
     Documento archivoConstancia
     String destino
     String observaciones

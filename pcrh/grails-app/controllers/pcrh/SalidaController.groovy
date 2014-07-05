@@ -21,6 +21,8 @@ class SalidaController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        params.sort = "fechaSalida"
+        params.order = "desc"
         def list = Salida.list(params);
         def count = Salida.count()
         //Todo - Poner filtros

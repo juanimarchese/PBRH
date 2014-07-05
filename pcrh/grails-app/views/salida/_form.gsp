@@ -43,7 +43,7 @@
 
     <div class="col-sm-4">
         <div>
-            <label class="control-label">Fecha Hecho</label>
+            <label class="control-label">Fecha Salida</label>
 
             <div>
                 <bs:datePicker class="form-control required" name="fechaSalida" precision="day"
