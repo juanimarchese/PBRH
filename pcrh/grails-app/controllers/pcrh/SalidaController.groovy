@@ -42,7 +42,7 @@ class SalidaController {
 
     def evidencias = {
 
-        def evidencias = Evidencia.findAll("from Evidencia e where e.resultado.hecho.idHecho =:id and not exists (from Salida s where s.evidencia = e)", [id: params.idHecho])
+        def evidencias = Evidencia.findAll("from Evidencia e where e.resultado.hecho.idHecho =:id and not exists (from Salida s where s.evidencia = e and s.fechaEntrada is  null)", [id: params.idHecho])
         render g.select(keys: evidencias*.id, from: evidencias*.toString(), id: 'evidenciaDropDown', name: "evidencia")
 
     }
