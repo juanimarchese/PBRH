@@ -6,7 +6,7 @@ package com.pcrh.enums
 public enum EnumComisaria {
     SM_P("San Miguel","Primera"),SM_S("San Miguel","Segunda Bella Vista"),SM_T("San Miguel","Tercera SM Oeste"),
     JCP_P("Jose C. Paz","Primera"),JCP_S("Jose C. Paz","Segunda Frino"),JCP_T("Jose C. Paz","Tercera"),
-    MA_P("Malvinas Argentinas","Primera Grand Bourg"),MA_S("Malvinas Argentinas","Segunda Los Polvorines"),MA_T("Malvinas Argentinas","Tercera Pablo Noguez"),MA_C("Malvinas Argentinas","Cuarta Tortuguitas"),
+    MA_P("Malvinas Argentinas","Primera Grand Bourg"),MA_S("Malvinas Argentinas","Segunda Los Polvorines"),MA_T("Malvinas Argentinas","Tercera Pablo Nogues"),MA_C("Malvinas Argentinas","Cuarta Tortuguitas"),
     OTRO("Otra","")
     private final String descripcion;
     private final String localidad;
