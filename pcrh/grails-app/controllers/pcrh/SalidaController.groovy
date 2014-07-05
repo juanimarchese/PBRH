@@ -37,7 +37,7 @@ class SalidaController {
             return
         }
         def salida = new Salida()
-        [salida: salida]
+        [salida: salida,freezeEvidence: false]
     }
 
     def evidencias = {
@@ -73,11 +73,12 @@ class SalidaController {
                 return
             }
            Salida salida = Salida.get(params.id)
-            [salida: salida]
+            [salida: salida,freezeEvidence: true]
         }
 
        def edit() {
            def idSalida = params.id
+           def showEntrada = params.showEntrada != null ? params.showEntrada : false;
            if(!Salida.exists(idSalida)){
                flash.message = "Error - La salida no existe"
                redirect(action: "list")
@@ -86,7 +87,7 @@ class SalidaController {
            def salida = Salida.get(idSalida)
            salida?.clearErrors()
            salida?.validate()
-           [salida: salida]
+           [salida: salida,showEntrada: showEntrada,freezeEvidence: true]
        }
 
 
@@ -147,6 +148,11 @@ class SalidaController {
            documentInstance.save(flush: true)
            documentInstance
        }
+
+        def markAsReturned(){
+            params.showEntrada = true
+            redirect(action: "edit", params: params)
+        }
 
        def uploadConstancia(){
            def idSalida = params.id

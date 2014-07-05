@@ -36,7 +36,7 @@
 
 
             <th style="color: #428bca" width="30px">Constancia</th>
-            <th style="color: #428bca" width="200px">Acciones</th>
+            <th style="color: #428bca" width="280px">Acciones</th>
 
         </tr>
         </thead>
@@ -81,14 +81,24 @@
                 </td>
 
                 <td>
-                    <g:if test="${salidaVar?.archivoConstancia == null}">
+
                     <div align="center">
+                        <span class="">
+                            <g:link action="markAsReturned" params="[id: salidaVar.id]"
+                                    role="button" class="btn btn-primary btn-sm" title="Regreso de Evidencia">
+                                <i class="glyphicon glyphicon-floppy-save"></i>
+                                <g:if test="${salidaVar?.fechaEntrada != null}">Modificar </g:if>
+                                Entrada
+                            </g:link>
+                        </span>
+
                         <span class="">
                             <g:link action="uploadConstancia" params="[id: salidaVar.id]"
                                     role="button" class="btn btn-primary btn-sm" title="Subir Constancia Salida">
                                 <i class="glyphicon glyphicon-upload"></i> Constancia
                             </g:link>
                         </span>
+                        <g:if test="${salidaVar?.fechaEntrada == null}">
                         <span class="">
                             <g:link action="edit" params="[id: salidaVar.id]"
                                     role="button" class="btn btn-success btn-sm" title="Editar">
@@ -98,13 +108,14 @@
 
                          <g:render template="/_common/modals/deleteSymbolLink"
                                    model="[id: salidaVar.id]"/>
-                    </div>
                     </g:if>
-                    <g:else>
+                    </div>
+
+                    %{--<g:else>
                         <div align="center">
                             -
                         </div>
-                    </g:else>
+                    </g:else>--}%
                 </td>
 
             </tr>

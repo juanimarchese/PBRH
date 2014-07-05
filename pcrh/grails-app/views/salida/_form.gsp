@@ -32,6 +32,15 @@
             $("#hechoDropDown").change();
         }
 
+        <g:if test="${showEntrada}">
+            $('#edit-salida').find('input, textarea, button, select').attr('readonly','readonly');
+           $("#fechaSalida").removeClass('readOnlyDP') ;
+
+            $("#fechaEntrada").removeAttr('readonly');
+            $("#update").removeAttr('readonly');
+
+        </g:if>
+
     });
 
 </script>
@@ -42,15 +51,19 @@
 <div class="row">
 
     <div class="col-sm-4">
-        <div>
-            <label class="control-label">Fecha Salida</label>
 
-            <div>
-                <bs:datePicker class="form-control required" name="fechaSalida" precision="day"
-                               value="${salida?.fechaSalida}"
-                               noSelection="['': '']"/>
-            </div>
-        </div>
+          <div>
+              <label class="control-label">Fecha Salida</label>
+
+              <div>
+                  <bs:datePicker class="form-control required" name="fechaSalida" precision="day"
+                                 value="${salida?.fechaSalida}"
+                                 noSelection="['': '']"/>
+              </div>
+          </div>
+
+
+
     </div>
 
     <div class="col-sm-4">
@@ -58,12 +71,15 @@
             <label class="control-label">Hecho</label>
 
             <div>
+                <g:if test="${freezeEvidence}" >
+                   <g:textField  id="hechoDropDown" class="form-control required" name="hecho" value="${salida?.hecho?.getIdHecho()}" disabled="disabled"/>
+                </g:if><g:else>
                 <g:select id="hechoDropDown" class="form-control required" name="hecho"
                           noSelection="['': 'Seleccionar']"
                           from="${Hecho.getHechosConEvidencia()*.getIdHecho()}"
                           keys="${Hecho.getHechosConEvidencia()*.getIdHecho()}"
                           value="${salida?.hecho?.getIdHecho()}"/>
-
+                </g:else>
             </div>
         </div>
     </div>
@@ -74,11 +90,16 @@
             <label class="control-label">Evidencia</label>
 
             <div>
+                <g:if test="${freezeEvidence}" >
+                    <g:textField  class="form-control required" name="evidenciaTxt" value="${salida?.evidencia?.toString()}" disabled="disabled"/>
+                    <g:hiddenField name="evidencia" value="${salida?.evidencia?.getId()}"/>
+                </g:if><g:else>
                 <g:select id="evidenciaDropDown" class="form-control required" name="evidencia"
                           noSelection="['': 'Seleccionar']"
                           from="${Evidencia.findAll()*.toString()}"
                           keys="${Evidencia.findAll()*.getId()}"
                           value="${salida?.evidencia?.getId()}"/>
+                </g:else>
             </div>
         </div>
     </div>
@@ -117,6 +138,20 @@
 
 </div>
 
+<g:if test="${showEntrada}">
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <label class="control-label">Fecha Entrada</label>
+
+        <div>
+            <bs:datePicker class="form-control required" name="fechaEntrada" precision="day" id="fechaEntrada"
+                           value="${salida?.fechaEntrada}"
+                           noSelection="['': '']"/>
+        </div>
+    </div>
+</div>
+</g:if>
 
 
 
