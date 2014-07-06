@@ -25,12 +25,13 @@
             </ul>
         </li>
     </ul>
+    <sec:ifAnyGranted roles="ROLE_JEFE,ROLE_ADMIN">
     <ul class="nav navbar-nav">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Salidas<b class="caret"></b></a>
             <ul class="dropdown-menu">
 
-                <sec:ifAnyGranted roles="ROLE_JEFE,ROLE_ADMIN">
+
                     <li class="controller">
                         <g:link controller="salida" action="create">
                             <i class="glyphicon glyphicon-plus-sign"></i> Nueva Salida
@@ -41,24 +42,27 @@
                             <i class="glyphicon glyphicon-search"></i> Consultar Salidas
                         </g:link>
                     </li>
-                </sec:ifAnyGranted>
+
 
             </ul>
         </li>
     </ul>
+    </sec:ifAnyGranted>
+    <sec:ifAnyGranted roles="ROLE_JEFE,ROLE_ADMIN">
     <ul class="nav navbar-nav">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Estadisticas<b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <sec:ifAnyGranted roles="ROLE_JEFE,ROLE_ADMIN">
+
                     <li class="controller">
                         <g:link controller="main" action="index">
                             <i class="glyphicon glyphicon-stats"></i> Ver Estadisticas
                         </g:link>
                     </li>
-                </sec:ifAnyGranted>
+
             </ul>
         </li>
     </ul>
+    </sec:ifAnyGranted>
 </sec:ifAnyGranted>
 
