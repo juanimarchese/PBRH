@@ -124,15 +124,17 @@ class HechoController {
     }
 
     private void updateEvidencias(Hecho hecho) {
-        def _toBeDeleted = hecho.resultado.evidencias.findAll { (it?.deleted || (it == null)) }
+        def _toBeDeleted = hecho.resultado.evidencias.findAll { (it?.deleted || (it == null) || (it?.sector == null) || (it?.numero == null) || (it?.cantidad == null)) }
 
         // if there are phones to be deleted remove them all
         if (_toBeDeleted) {
             for(Evidencia e : _toBeDeleted){
-                def salidas = Salida.executeQuery("from Salida s where s.evidencia.id = " + e.id);
-                if (salidas == null) continue;
-                for (Salida s : salidas){
-                    s.delete(flush: true);
+                if (e.id != null){
+                    def salidas = Salida.executeQuery("from Salida s where s.evidencia.id = " + e.id);
+                    if (salidas == null) continue;
+                    for (Salida s : salidas){
+                        s.delete(flush: true);
+                    }
                 }
             }
             hecho.resultado.evidencias.removeAll(_toBeDeleted)

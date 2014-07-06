@@ -30,6 +30,9 @@ class Evidencia {
 
     static constraints = {
         resultado unique: ['sector','numero']
+        sector(blank: false,nullable: false)
+        numero(blank: false,nullable: false)
+        cantidad(blank: false,nullable: false)
     }
 
 
