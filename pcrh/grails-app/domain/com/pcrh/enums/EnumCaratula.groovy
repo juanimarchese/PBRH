@@ -4,7 +4,7 @@ package com.pcrh.enums
  * Created by Juan-Asus on 22/06/2014.
  */
 public enum EnumCaratula {
-        HALLASGO_AUTOMOTOR("Hallasgo Automotor"),DANIO("Daño"),HURTO("Hurto"),ROBO("Robo"),ROBO_CALIFICADO("Robo Calificado"),
+        HALLASGO_AUTOMOTOR("Hallazgo Automotor"),DANIO("Daño"),HURTO("Hurto"),ROBO("Robo"),ROBO_CALIFICADO("Robo Calificado"),
         PRIV_ILEGAL_LIBERTAD("Priv. Ilegal de la Libertad"), SECUESTRO_EXTORSIVO("Secuestro Extorsivo"),
         ATEN_RESIST_AUTORIDAD("Atent. Resist. A La Autoridad"),ABUSO_ARMA("Abuso de Arma"),LESIONES("Lesiones"),
         TENTATIVA_HOMICIDIO("Tentativa de Homicidio"), HOMICIDIO("Homicidio"),HOMOCIDIO_CULPOSO("Homicidio Culposo"),
