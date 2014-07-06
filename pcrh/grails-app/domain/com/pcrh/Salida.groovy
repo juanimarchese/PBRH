@@ -14,6 +14,8 @@ class Salida {
 	Date	dateCreated
 	Date	lastUpdated
 
+    Long creationUserId;
+
 	Date fechaSalida
     Date fechaEntrada
     Documento archivoConstancia

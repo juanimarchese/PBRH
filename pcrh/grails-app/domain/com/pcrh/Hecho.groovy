@@ -1,6 +1,7 @@
 package com.pcrh
 
 import com.pcrh.enums.EnumSiNo
+import com.pcrh.security.User
 import org.grails.databinding.BindingFormat
 
 /**
@@ -16,6 +17,8 @@ class Hecho implements Serializable{
 	/* Automatic timestamping of GORM */
 	Date	dateCreated
 	Date	lastUpdated
+
+    Long creationUserId;
 
     String idHecho
     @BindingFormat('dd/MM/yyyy')

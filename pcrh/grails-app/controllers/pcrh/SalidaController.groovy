@@ -4,7 +4,9 @@ import com.pcrh.Documento
 import com.pcrh.Evidencia
 import com.pcrh.Hecho
 import com.pcrh.Salida
+import com.pcrh.security.User
 import grails.plugins.springsecurity.Secured
+import grails.plugins.springsecurity.SpringSecurityService
 
 /**
  * SalidaController
@@ -14,6 +16,8 @@ import grails.plugins.springsecurity.Secured
 class SalidaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+
+    SpringSecurityService springSecurityService
 
     def index() {
         redirect(action: "list", params: params)
@@ -55,7 +59,9 @@ class SalidaController {
         salida.clearErrors()
         salida.validate()
 
+        salida.setLastUpdated()
 
+        setCurrentUser(salida)
 
         if (!salida.hasErrors()  && salida.save(flush: true)) {
             flash.message = message(code: 'default.created.message', args: ["Salida", salida.id])
@@ -64,6 +70,10 @@ class SalidaController {
             flash.message = "Error al crear la salida"
             redirect(action: "create", params: params)
         }
+    }
+
+    def setCurrentUser(Salida salida) {
+        salida.setCreationUserId(((User)springSecurityService.currentUser).getId());
     }
 
        def show() {
@@ -114,7 +124,7 @@ class SalidaController {
 
            salida.properties = params
 
-
+           setCurrentUser(salida)
            if (!salida.hasErrors()  && salida.save(flush: true)) {
                flash.message = message(code: 'default.updated.message', args: ["Salida", salida.id])
                redirect(action: "index")

@@ -5,7 +5,9 @@ import com.pcrh.Evidencia
 import com.pcrh.Hecho
 import com.pcrh.ResultadoHecho
 import com.pcrh.Salida
+import com.pcrh.security.User
 import grails.plugins.springsecurity.Secured
+import grails.plugins.springsecurity.SpringSecurityService
 
 /**
  * HechoController
@@ -15,6 +17,8 @@ import grails.plugins.springsecurity.Secured
 class HechoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+
+    SpringSecurityService springSecurityService
 
     def index() {
         redirect(action: "list", params: params)
@@ -49,6 +53,8 @@ class HechoController {
 
         updateEvidencias(hecho)
 
+        setCurrentUser(hecho)
+
         if (!hecho.hasErrors()  && hecho.save(flush: true)) {
             flash.message = message(code: 'default.created.message', args: ["Hecho", hecho.idHecho])
             redirect(action: "index")
@@ -58,7 +64,11 @@ class HechoController {
         }
     }
 
-      def show() {
+    def setCurrentUser(Hecho hecho) {
+        hecho.setCreationUserId(((User)springSecurityService.currentUser).getId());
+    }
+
+    def show() {
           if(!Hecho.exists(params.id + '/' + params.anio)){
               flash.message = message(code: 'default.not.found.message', args: ["Hecho", params.id])
               redirect(action: "list")
@@ -108,6 +118,7 @@ class HechoController {
 
           updateEvidencias(hecho)
 
+          setCurrentUser(hecho)
           if (!hecho.hasErrors()  && hecho.save(flush: true)) {
               flash.message = message(code: 'default.updated.message', args: ["Hecho", hecho.idHecho])
               redirect(action: "index")
@@ -130,7 +141,7 @@ class HechoController {
         if (_toBeDeleted) {
             for(Evidencia e : _toBeDeleted){
                 if (e.id != null){
-                    def salidas = Salida.executeQuery("from Salida s where s.evidencia.id = " + e.id);
+                    def salidas = Salida.executeQuery("from Salida s where s.evidencia.id = ?",[e.id]);
                     if (salidas == null) continue;
                     for (Salida s : salidas){
                         s.delete(flush: true);
@@ -147,6 +158,12 @@ class HechoController {
           def hecho = Hecho.get(idHecho)
 
           try {
+              def salidas = Salida.executeQuery("from Salida s where s.hecho.idHecho = ? ",[hecho.idHecho]);
+              if(salidas != null){
+                  for (Salida s : salidas){
+                      s.delete(flush: true);
+                  }
+              }
               hecho.delete(flush: true)
               flash.message = message(code: 'default.deleted.message', args: ["Hecho", idHecho])
           }
