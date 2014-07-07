@@ -4,6 +4,10 @@
             $(this).attr('readonly', 'readonly');
             $(this).addClass("readOnlyDP");
         });
+        $(".timepickerClass").each(function (item) {
+            $(this).attr('readonly', 'readonly');
+            $(this).addClass("readOnlyDP");
+        });
     });
 
     function submitForm() {

@@ -102,7 +102,7 @@
             <label class="control-label">Hora Solicitud</label>
 
             <div>
-                <g:textField class="form-control hora" id="datetimepicker1" name="horaSolicitud" value="${hecho?.horaSolicitud}" data-date-format="HH:mm"/>
+                <g:textField class="form-control hora timepickerClass" id="datetimepicker1" name="horaSolicitud" value="${hecho?.horaSolicitud}" data-date-format="HH:mm"/>
             </div>
         </div>
     </div>
@@ -112,7 +112,7 @@
             <label class="control-label">Hora Arribo</label>
 
             <div>
-                <g:textField class="form-control hora" id="datetimepicker2" name="horaArribo" value="${hecho?.horaArribo}"  data-date-format="HH:mm"/>
+                <g:textField class="form-control hora timepickerClass" id="datetimepicker2" name="horaArribo" value="${hecho?.horaArribo}"  data-date-format="HH:mm"/>
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@
             <label class="control-label">Hora Final</label>
 
             <div>
-                <g:textField class="form-control hora" id="datetimepicker3" name="horaFinal" value="${hecho?.horaFinal}"  data-date-format="HH:mm"/>
+                <g:textField class="form-control hora timepickerClass" id="datetimepicker3" name="horaFinal" value="${hecho?.horaFinal}"  data-date-format="HH:mm" />
             </div>
         </div>
     </div>
