@@ -56,12 +56,13 @@ class SalidaController {
         def salida = new Salida()
         salida.properties = params
 
-        salida.clearErrors()
-        salida.validate()
+
 
         salida.setLastUpdated()
 
         setCurrentUser(salida)
+        salida.clearErrors()
+        salida.validate()
 
         if (!salida.hasErrors()  && salida.save(flush: true)) {
             flash.message = message(code: 'default.created.message', args: ["Salida", salida.id])

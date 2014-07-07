@@ -48,13 +48,13 @@ class HechoController {
         def hecho = new Hecho()
         hecho.properties = params
 
-        hecho.clearErrors()
-        hecho.validate()
+
 
         updateEvidencias(hecho)
 
         setCurrentUser(hecho)
-
+        hecho.clearErrors()
+        hecho.validate()
         if (!hecho.hasErrors()  && hecho.save(flush: true)) {
             flash.message = message(code: 'default.created.message', args: ["Hecho", hecho.idHecho])
             redirect(action: "index")
