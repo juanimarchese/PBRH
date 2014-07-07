@@ -149,6 +149,9 @@ class HechoController {
                 }
             }
             hecho.resultado.evidencias.removeAll(_toBeDeleted)
+            if(hecho.resultado.evidencias.isEmpty()){
+                hecho.resultado.sinEvidencia = false;
+            }
 
         }
     }
