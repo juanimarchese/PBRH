@@ -18,7 +18,8 @@ class HechoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    SpringSecurityService springSecurityService
+    def springSecurityService
+    def hechoService
 
     def index() {
         redirect(action: "list", params: params)
@@ -26,10 +27,18 @@ class HechoController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        def list = Hecho.list(params);
-        def count = Hecho.count()
-        //Todo - Poner filtros
-        [hechoList: list ? list : [], hechoTotal: count ? count : 0, params: params ]
+        if(!params.searchable){
+            [ searchKeyword:"",
+              hechoList: Hecho.list(params),
+              hechoTotal: Hecho.count()]
+        }else{
+            def hechos = hechoService.searchHechoByFilters(params)
+            [ searchKeyword: params.searchable ,
+              hechoList: hechos.searchResults ,
+              hechoTotal: hechos.searchResultSize]
+        }
+
+
     }
 
     def create() {

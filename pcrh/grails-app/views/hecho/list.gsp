@@ -15,24 +15,45 @@
 </head>
 
 <body>
-
+<section id="search-hecho>" class="pull-right">
+    <g:form>
+        Busqueda:
+        <input type="search" name="searchable" value="${searchKeyword}"/>
+        <g:actionSubmit action="list" value="Search"/>
+    </g:form>
+</section>
 <section id="list-hecho" class="first">
 
     <table class="table table-bordered margin-top-medium">
         <thead>
         <tr>
+            <g:if test="${!searchKeyword}">
+                <g:sortableColumn property="idHecho" title="Numero" />
 
-            <g:sortableColumn property="idHecho" title="Numero" />
+                <g:sortableColumn property="fechaHecho" title="Fecha" width="30px"/>
+                <g:sortableColumn property="caratula" title="Caratula" />
 
-            <g:sortableColumn property="fechaHecho" title="Fecha" width="30px"/>
-            <g:sortableColumn property="caratula" title="Caratula" />
+                <g:sortableColumn property="comisariaInterviniente" title="Comisaria" />
 
-            <g:sortableColumn property="comisariaInterviniente" title="Comisaria" />
+                <g:sortableColumn property="lugarHecho" title="Lugar" />
 
-            <g:sortableColumn property="lugarHecho" title="Lugar" />
+                <g:sortableColumn property="magistradoInterviniente" title="Magistrado" />
 
-            <g:sortableColumn property="magistradoInterviniente" title="Magistrado" />
+            </g:if>
+            <g:else>
+                <g:sortableColumn property="idHecho" title="Numero" params="[searchable:searchKeyword]" />
 
+                <g:sortableColumn property="fechaHecho" title="Fecha" width="30px" params="[searchable:searchKeyword]"/>
+                <g:sortableColumn property="caratula" title="Caratula" params="[searchable:searchKeyword]"/>
+
+                <g:sortableColumn property="comisariaInterviniente" title="Comisaria" params="[searchable:searchKeyword]"/>
+
+                <g:sortableColumn property="lugarHecho" title="Lugar" params="[searchable:searchKeyword]"/>
+
+                <g:sortableColumn property="magistradoInterviniente" title="Magistrado" params="[searchable:searchKeyword]"/>
+
+
+            </g:else>
             <th style="color: #428bca">PU</th>
             <th style="color: #428bca">LEF</th>
             <th style="color: #428bca" width="210px">Acciones</th>
@@ -108,7 +129,9 @@
         </tbody>
     </table>
     <div class="container" align="center">
-        <bs:paginate total="${hechoTotal}"  params="${params}" />
+
+                <bs:paginate total="${hechoTotal}"  params="${params}" />
+                   
     </div>
 </section>
 
