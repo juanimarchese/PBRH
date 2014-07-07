@@ -45,6 +45,13 @@
         onChangeMoradores();
         onChangeEvidencia();
         onChangeConsigna();
+        var configTime = {
+            pickDate: false,
+            language:'es'
+        };
+        $('#datetimepicker1').datetimepicker(configTime);
+        $('#datetimepicker2').datetimepicker(configTime);
+        $('#datetimepicker3').datetimepicker(configTime);
     });
 
 </script>
@@ -95,7 +102,7 @@
             <label class="control-label">Hora Solicitud</label>
 
             <div>
-                <g:textField class="form-control hora" name="horaSolicitud" value="${hecho?.horaSolicitud}"/>
+                <g:textField class="form-control hora" id="datetimepicker1" name="horaSolicitud" value="${hecho?.horaSolicitud}" data-date-format="HH:mm"/>
             </div>
         </div>
     </div>
@@ -105,7 +112,7 @@
             <label class="control-label">Hora Arribo</label>
 
             <div>
-                <g:textField class="form-control hora" name="horaArribo" value="${hecho?.horaArribo}"/>
+                <g:textField class="form-control hora" id="datetimepicker2" name="horaArribo" value="${hecho?.horaArribo}"  data-date-format="HH:mm"/>
             </div>
         </div>
     </div>
@@ -115,7 +122,7 @@
             <label class="control-label">Hora Final</label>
 
             <div>
-                <g:textField class="form-control hora" name="horaFinal" value="${hecho?.horaFinal}"/>
+                <g:textField class="form-control hora" id="datetimepicker3" name="horaFinal" value="${hecho?.horaFinal}"  data-date-format="HH:mm"/>
             </div>
         </div>
     </div>
