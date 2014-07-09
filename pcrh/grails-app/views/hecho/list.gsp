@@ -15,15 +15,23 @@
 </head>
 
 <body>
-<section id="search-hecho>" class="pull-right">
-    <g:form>
-        Busqueda:
-        <input type="search" name="searchable" value="${searchKeyword}"/>
-        <g:actionSubmit action="list" value="Search"/>
-    </g:form>
-</section>
-<section id="list-hecho" class="first">
 
+<section id="list-hecho" class="first">
+    <div class="form-group" >
+        <div class="pull-right" style="padding-bottom: 3px" >
+            <g:form action="list">
+                <div class="col-xs-10" style="padding-right: 0px">
+                    <input type="search" name="searchable" value="${searchKeyword}" class="form-control"/>
+                </div>
+                <div class="col-xs-1" style="padding-left: 1px">
+                    <button type="submit" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+
+            </g:form>
+        </div>
+    </div>
     <table class="table table-bordered margin-top-medium">
         <thead>
         <tr>
