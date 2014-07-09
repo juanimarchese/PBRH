@@ -23,7 +23,7 @@
                 <div class="col-xs-10" style="padding-right: 0px">
                     <input type="search" name="searchable" value="${searchKeyword}" class="form-control"/>
                 </div>
-                <div class="col-xs-1" style="padding-left: 1px">
+                <div class="col-xs-2" style="padding-left: 1px">
                     <button type="submit" class="btn btn-warning">
                         <i class="glyphicon glyphicon-search"></i>
                     </button>

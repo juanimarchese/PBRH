@@ -10,7 +10,7 @@ class HechoService {
         def searchFor = params.searchable
         def hechoCriteria = Hecho.createCriteria()
         def searchResults = hechoCriteria.list(max: params.max, offset: params.offset, sort: params.sort, order: params.order){
-            ilike("idHecho", "${searchFor}%")
+            ilike("idHecho", "%${searchFor}%")
         }
         [searchResults: searchResults, searchResultSize: searchResults.getTotalCount()]
     }
