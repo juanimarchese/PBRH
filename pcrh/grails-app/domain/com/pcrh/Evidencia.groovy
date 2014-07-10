@@ -39,6 +39,6 @@ class Evidencia {
     @Override
     public String toString() {
         String s = sector + numero + " - " +numero+" "+tipo.valor
-        return  !observaciones.empty ? (s + " - " + observaciones) : s;
+        return  observaciones != null && !observaciones.empty ? (s + " - " + observaciones) : s;
     }
 }
