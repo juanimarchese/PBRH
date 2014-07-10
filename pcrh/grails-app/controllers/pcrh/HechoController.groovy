@@ -27,13 +27,12 @@ class HechoController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        if(!params.searchable){
-            [ searchKeyword:"",
-              hechoList: Hecho.list(params),
+        if(!params.filter){
+            [ hechoList: Hecho.list(params),
               hechoTotal: Hecho.count()]
         }else{
             def hechos = hechoService.searchHechoByFilters(params)
-            [ searchKeyword: params.searchable ,
+            [ filter: params.filter ,
               hechoList: hechos.searchResults ,
               hechoTotal: hechos.searchResultSize]
         }

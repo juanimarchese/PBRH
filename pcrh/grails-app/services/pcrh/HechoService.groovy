@@ -7,10 +7,14 @@ import com.pcrh.Hecho
  */
 class HechoService {
     def searchHechoByFilters(def params) {
-        def searchFor = params.searchable
+        def idHecho = params.filter.idHecho
+        def fechaStr = params.filter.fechaHecho
+        def fechaHecho = null
+        if (fechaStr != null && fechaStr.length() > 0) fechaHecho = new Date(fechaStr)
         def hechoCriteria = Hecho.createCriteria()
         def searchResults = hechoCriteria.list(max: params.max, offset: params.offset, sort: params.sort, order: params.order){
-            ilike("idHecho", "%${searchFor}%")
+            if (idHecho) ilike("idHecho", "%${idHecho}%")
+            if (fechaHecho) eq("fechaHecho", fechaHecho)
         }
         [searchResults: searchResults, searchResultSize: searchResults.getTotalCount()]
     }

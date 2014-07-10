@@ -48,3 +48,8 @@ span.timepicker-minute {
 .timepicker-picker > .table-condensed > thead > tr > th, .timepicker-picker > .table-condensed > tbody > tr > th,.timepicker-picker > .table-condensed > tfoot > tr > th,.timepicker-picker > .table-condensed > thead > tr > td,.timepicker-picker > .table-condensed > tbody > tr > td,.timepicker-picker > .table-condensed > tfoot > tr > td{
     padding: 0;
 }
+
+hr{
+    margin-top: 0px !important;
+    margin-bottom: 15px !important;
+}
