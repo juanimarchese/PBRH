@@ -77,7 +77,7 @@
     </div>
 
     <div id="${id}_div_other" class="col-sm-7">
-        <label class="control-label">Descripcion</label>
+        <label class="control-label">Descripción</label>
 
         <div>
             <g:textField id="${id}_txt" class="form-control" name="${nameOther}" value="${otherValue}"/>

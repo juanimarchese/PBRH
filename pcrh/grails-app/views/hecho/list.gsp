@@ -23,7 +23,7 @@
     <hr style="border-top: 2px solid #eeeeee;margin-top: 1px">
     <g:form action="list">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-xs-4">
                 <div>
                     <label class="control-label">Numero</label>
 
@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-xs-4">
                 <div>
                     <label class="control-label">Fecha Hecho</label>
 
@@ -46,19 +46,55 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
-                <div>
+            <div class="col-xs-4">
 
+                        <g:render template="/_common/components/comboWithOther"
+                                  model="[id  : 'caratula', label: 'Caratula', name: 'filter.caratula.caratula', nameOther: 'filter.caratula.otherDescription',
+                                          from: com.pcrh.enums.EnumCaratula.values()*.getValor(), keys: com.pcrh.enums.EnumCaratula.values()*.name(), value: filter?.caratula?.caratula, otherValue: filter?.caratula?.otherDescription
+                                  ]"/>
+
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <g:render template="/_common/components/comboWithOther"
+                          model="[id  : 'comisaria', label: 'Comisaria', name: 'filter.comisariaInterviniente.comisaria', nameOther: 'filter.comisariaInterviniente.otherDescription',
+                                  from: com.pcrh.enums.EnumComisaria.values()*.getNombre(), keys: com.pcrh.enums.EnumComisaria.values()*.name(), value: filter?.comisariaInterviniente?.comisaria, otherValue: filter?.comisariaInterviniente?.otherDescription
+                          ]"/>
+            </div>
+
+            <div class="col-xs-4">
+                <div>
+                    <label class="control-label">Lugar</label>
+
+                    <div>
+                        <g:textField class="form-control" name="filter.lugar"
+                                     value="${filter?.lugar}"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4">
+                <div>
+                    <label class="control-label">Magistrado</label>
+
+                    <div>
+                        <g:textField class="form-control" name="filter.magistrado"
+                                     value="${filter?.magistrado}"/>
+                    </div>
                 </div>
             </div>
         </div>
 
-
-        <div class="row" align="center" style="padding-top: 5px">
+        <div  align="right"  style="padding-top: 10px">
             <button type="submit" class="btn btn-warning">
                 <i class="glyphicon glyphicon-search"></i> Buscar
             </button>
-        </div>
+
+           </div>
     </g:form>
 
     <h3>Listado</h3>

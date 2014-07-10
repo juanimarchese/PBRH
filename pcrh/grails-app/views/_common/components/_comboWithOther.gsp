@@ -35,7 +35,7 @@
         <label class="control-label">${label}</label>
 
         <div>
-            <g:select id="${id}_sel" class="form-control required" name="${name}" noSelection="['': 'Seleccionar']"
+            <g:select id="${id}_sel" class="form-control required" name="${name}" noSelection="['': 'Ninguna']"
                       from="${from}"
                       keys="${keys}"
                       value="${value}" />
@@ -43,7 +43,7 @@
     </div>
 
     <div id="${id}_div_other" class="col-sm-7">
-        <label class="control-label">Descripcion</label>
+        <label class="control-label">Descripción</label>
 
         <div>
             <g:textField id="${id}_txt" class="form-control" name="${nameOther}" value="${otherValue}"/>
